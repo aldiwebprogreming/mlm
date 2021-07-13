@@ -20,23 +20,34 @@
       </div>
       <div class="row">
         <!-- single-well start-->
-        <div class="col-md-6 col-sm-6 col-xs-12">
-          <div class="well-left">
-            <div class="single-well">
-              <a href="#">
-                  <img src="https://blush.design/api/download?shareUri=bYOKSW10lMFPaVA9&c=Skin_0%7E604891-0.5%7Eb3b2e6&w=800&h=800&fm=png" alt="" style="height: 400px;">
-                </a>
-            </div>
-          </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+
+          <div class="card" style=";">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Data member</li>
+            
+          </ul>
+        </div>
+
+          <div class="card" style=";">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+          </ul>
+        </div>
+          
         </div>
         <!-- single-well end-->
-        <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="col-md-8 col-sm-8 col-xs-12">
           <div class="well-middle">
             <div class="single-well">
-              <a href="#">
-                <!-- <h4 class="sec-head">project Maintenance</h4> -->
-              </a>
-              <form method="post" action="<?= base_url('bisnis/register') ?>">
+             
+              <div class="card1" style="border:">
+              <form method="post" action="<?= base_url('bisnis/tambah_member') ?>">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama</label>
                   <input type="text" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan nama">
@@ -61,7 +72,7 @@
                   <?= form_error('no_telp', '<small class="text-danger pl-3">', '</sm
                                   <div class="form-group">'); ?>
                   </div>
-                <br>
+               
                 <div class="form-group">
                 <div class="row">
                   <div class="col-sm-6">
@@ -80,12 +91,13 @@
                 </div>
               </div>
 
-                <div class="form-group form-check">
+                <!-- <div class="form-group form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
                   <label class="form-check-label" for="exampleCheck1">Menyetujui persyaratan ini.</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Register</button>
+                </div> -->
+                <button type="submit" class="btn btn-primary">Submit</button>
               </form>
+            </div>
             </div>
           </div>
         </div>
