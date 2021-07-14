@@ -1,0 +1,96 @@
+<?php 
+
+    /**
+     * 
+     */
+    class Dashboard extends CI_Controller
+    {
+        
+        function __construct()
+        {
+           parent:: __construct();
+           if ($this->session->userdata('name') == NULL) {
+                redirect('ebunga/login');
+            }
+           $this->load->library('form_validation');
+        }
+
+    function dashboard(){
+
+     $this->load->view('template/header');
+     $this->load->view('dashboard/index');
+     $this->load->view('template/footer');
+    }
+
+    function tambah_member(){
+
+
+     $this->form_validation->set_rules('nama', 'nama', 'required|trim');
+          $this->form_validation->set_rules('username', 'username', 'required|trim|max_length[5]');
+          $this->form_validation->set_rules('no_telp', 'no telp', 'required|trim');
+         $this->form_validation->set_rules('email', 'email', 'required|trim|valid_email|is_unique[tbl_register.email]', [
+            'is_unique' => 'This email has already registered!']);
+
+         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[5]|matches[password2]', [
+            'matches' => 'Password dont match!',
+            'min_length' => 'Password too short!'
+              ]);
+         $this->form_validation->set_rules('password2', 'konfirmasi password', 'required|trim|matches[password]');
+
+             if ($this->form_validation->run() == false) {
+
+             $this->load->view('template/header');
+             $this->load->view('dashboard/tambah_member');
+             $this->load->view('template/footer');
+
+         }else {
+
+             $kode = rand(1, 100000);
+                 $kode_user = "Ebunga-".$kode;
+
+                 $data = [
+                     'kode_user' => $kode_user,
+                     'name' => $this->input->post('nama'),
+                     'username' => $this->input->post('username'),
+                     'email' => $this->input->post('email'),
+                     'no_telp' => $this->input->post('no_telp'),
+                     'password' => password_hash($this->input->post('password2'), PASSWORD_DEFAULT),
+                     'status' => 0,
+                     'kode_jaringan' => $this->input->post('kode_founder'),
+                 ];
+
+                 $email = $this->input->post('email');
+                 $nama = $this->input->post('nama');
+                 // $this->sendEmail($email, $nama, $kode_user);
+
+                 $input = $this->db->insert('tbl_register', $data);
+                  $this->session->set_flashdata('message', 'swal("Sukses!!", "Anda Berhasil Mendaftar", "success");');
+                         redirect('/ebunga/member'); 
+
+         }
+
+
+
+    }
+
+
+     public function logout(){
+        $this->session->unset_userdata('kode_user');
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('name');
+        $this->session->unset_userdata('username');
+
+        redirect('ebunga/login ');
+    } 
+
+
+    function produk(){
+        $this->load->view('template/header');
+        $this->load->view('home/produk');
+        $this->load->view('template/footer');
+    }
+
+
+    }
+
+ ?>

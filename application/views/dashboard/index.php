@@ -38,28 +38,9 @@ body {
   color: inherit;
 }
 
-a,
-.card__exit,
-.card__icon {
-  position: relative;
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.9);
-}
 
-a::after {
-  position: absolute;
-  top: 25px;
-  left: 0;
-  content: "";
-  width: 0%;
-  height: 3px;
-  background-color: rgba(255, 255, 255, 0.6);
-  transition: all 0.5s;
-}
 
-a:hover::after {
-  width: 100%;
-}
+
 
 .main-container {
   padding: 30px;
@@ -137,15 +118,38 @@ a:hover::after {
 
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-     <div class="card" style="background: radial-gradient(#f588d8, #c0a3e5);">
+
+    <div class="col-sm-4">
+        <div class="card" style="height: 250px;">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Profil </li>
+            <li class="list-group-item"><?= $this->session->name  ?></li>
+            <li class="list-group-item"><?= $this->session->username  ?></li>
+            <li class="list-group-item"><?= $this->session->email  ?></li>
+            <li class="list-group-item"><a href="<?= base_url() ?>dashboard/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+            
+            
+          </ul>
+
+        </div>
+
+
+        
+    </div>
+
+    <div class="col-sm-8">
+      <div class="row">
+
+    <div class="col-md-6">
+     <div class="card" style="background: radial-gradient(#f588d8, #c0a6e5);">
       <div class="card-body">
         <i class="fas fa-street-view"  style="font-size: 70px; color: white;"></i>
         <span style="margin-left: 10px; font-size: 24px; color: white; font-weight: bold;">Jaringan</span>
       </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-6">
      <div class="card" style="background: radial-gradient(#76b2fe, #b69efe);">
       <div class="card-body">
        <i class="fas fa-wallet" style="font-size: 70px; color: white;"></i>
@@ -153,27 +157,32 @@ a:hover::after {
       </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-6">
+       <a href="<?= base_url('ebunga/produk') ?>">
       <div class="card" style="background: radial-gradient(#60efbc, #58d5c9);">
       <div class="card-body">
-        <i class="fas fa-money-bill" style="font-size: 70px; color: white;"></i>
-          <span style="margin-left: 10px; font-size: 25px; color: white; font-weight: bold;">Bonus</span>
+        <i class="fas fa-apple-alt" style="font-size: 70px; color: white;"></i>
+          <span style="margin-left: 10px; font-size: 25px; color: white; font-weight: bold;">Produk</span>
       </div>
       </div>
+    </a>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-6">
        <a href="<?= base_url('ebunga/member') ?>">
         <div class="card" style="background: radial-gradient(#1fe4f5, #3fbafe);">
       <div class="card-body">
         <i class="fas fa-user" style="font-size: 60px; color: white;"></i>
-        <span style="margin-left: 20px; font-size: 14px; color: white; font-weight: bold;">Daftar Member</span>
+        <span style="margin-left: 20px; font-size: 25px; color: white; font-weight: bold;">Daftar Member</span>
         <!-- This is some text within a card body. -->
       </div>
 
       </div>
         </a>
     </div>
+
+  </div>
+</div>
 
     
 

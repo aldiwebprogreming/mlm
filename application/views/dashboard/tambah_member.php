@@ -7,29 +7,18 @@
 </div>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
 
-
-<div id="about" class="about-area area-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <div class="section-headline text-center">
-            <!-- <h2>About eBusiness</h2> -->
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <!-- single-well start-->
-        <div class="col-md-4 col-sm-4 col-xs-12">
-
-          <div class="card" style=";">
+      <div class="card" style=";">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Data member</li>
+            <li class="list-group-item">Data jaringan anda</li>
             
           </ul>
         </div>
 
-          <div class="card" style=";">
+        <div class="card" style=";">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">An item</li>
             <li class="list-group-item">A second item</li>
@@ -39,15 +28,18 @@
             <li class="list-group-item">A third item</li>
           </ul>
         </div>
-          
-        </div>
-        <!-- single-well end-->
-        <div class="col-md-8 col-sm-8 col-xs-12">
-          <div class="well-middle">
-            <div class="single-well">
-             
-              <div class="card1" style="border:">
-              <form method="post" action="<?= base_url('bisnis/tambah_member') ?>">
+    </div>
+
+    <div class="col-sm-8">
+      <form method="post" action="<?= base_url('dashboard/tambah_member') ?>">
+              <div class="form-group">
+                  <label for="exampleInputEmail1">Kode Founder</label>
+                  <input type="text" name="kode_founder" disabled="" class="form-control" aria-describedby="emailHelp" value="<?= $this->session->kode_user  ?>">
+
+                   <input type="hidden" name="kode_founder" class="form-control" aria-describedby="emailHelp" value="<?= $this->session->kode_user  ?>">
+                  
+                </div>
+
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama</label>
                   <input type="text" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan nama">
@@ -97,13 +89,9 @@
                 </div> -->
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
-            </div>
-            </div>
-          </div>
-        </div>
-        <!-- End col-->
-      </div>
     </div>
-    </div>
-    </div>
-    </div>
+
+  </div>
+</div>
+
+</div>
