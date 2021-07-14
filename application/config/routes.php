@@ -53,15 +53,12 @@ $route['default_controller'] = 'bisnis';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
-
-$route['ebunga/login'] ='bisnis/login';
 $route['ebunga/register'] ='bisnis/register';
 $route['ebunga/verifikasi/(:any)'] ='bisnis/verifikasi/$1';
 
 
 // dasboard user
-$route['ebunga/dashboard'] ='dashboard/dashboard';
-$route['ebunga/member'] ='dashboard/tambah_member';
-$route['ebunga/produk'] ='dashboard/produk';
+$route['ebunga/dashboard'] ='bisnis/dashboard';
+$route['ebunga/member'] ='bisnis/tambah_member';
 
 
