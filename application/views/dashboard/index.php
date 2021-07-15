@@ -142,7 +142,7 @@ body {
                   echo '<b>Tidak ada inivoice</b>';
                 }else{ ?>
                  
-                  <p style="font-weight: bold"><?= $jml_invo ?> ( Pending )</p><a href="invoices">Lihat</a>
+                  <p style="font-weight: bold"><a href="<?= base_url() ?>ebunga/invoices">Lihat<?= $jml_invo ?> ( Pending )</a></p>
               
               <?php } ?>
 
