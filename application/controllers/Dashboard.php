@@ -13,12 +13,17 @@
                 redirect('ebunga/login');
             }
            $this->load->library('form_validation');
+            $this->load->model('m_data');
         }
 
     function dashboard(){
 
+    $email = $this->session->email;
+    $this->db->where('email', $email);
+    $this->db->where('status_code', 201);
+    $data['jml_invo'] = $this->db->get('tbl_transaksi')->num_rows();
      $this->load->view('template/header');
-     $this->load->view('dashboard/index');
+     $this->load->view('dashboard/index', $data);
      $this->load->view('template/footer');
     }
 
@@ -85,9 +90,33 @@
 
 
     function produk(){
+       
+        $data['produk'] = $this->m_data->get('tbl_produk');
         $this->load->view('template/header');
-        $this->load->view('home/produk');
+        $this->load->view('dashboard/produk', $data);
         $this->load->view('template/footer');
+    }
+
+
+    function detail_produk($kode){
+
+        $data['det'] = $this->db->get_where('tbl_produk',['kode_produk' => $kode])->row_array();
+         $data['produk'] = $this->m_data->get('tbl_produk');
+        $this->load->view('template/header');
+        $this->load->view('dashboard/detail', $data);
+        $this->load->view('template/footer');
+    }
+
+
+    function invoices(){
+        $data['invo'] = $this->db->get_where('tbl_transaksi',['email'=>$this->session->email])->result_array();
+
+        $data['produk'] = $this->db->get('tbl_produk')->result_array();
+
+        $this->load->view('template/header');
+        $this->load->view('dashboard/invoices', $data);
+        $this->load->view('template/footer');
+
     }
 
 

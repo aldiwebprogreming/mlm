@@ -41,6 +41,7 @@
 
         			$kode = rand(1, 100000);
 					$kode_user = "Ebunga-".$kode;
+					$founder = 'Ebunga-00001';
 
         			$data = [
         				'kode_user' => $kode_user,
@@ -50,6 +51,7 @@
         				'no_telp' => $this->input->post('no_telp'),
         				'password' => password_hash($this->input->post('password2'), PASSWORD_DEFAULT),
         				'status' => 0,
+        				'kode_jaringan' => $founder,
         			];
 
         			$email = $this->input->post('email');

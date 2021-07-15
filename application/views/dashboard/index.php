@@ -120,15 +120,33 @@ body {
   <div class="row">
 
     <div class="col-sm-4">
+
         <div class="card" style="height: 250px;">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Profil </li>
+            <li class="list-group-item"><i class="fas fa-user"></i> <b>Info anda</b> </li>
             <li class="list-group-item"><?= $this->session->name  ?></li>
             <li class="list-group-item"><?= $this->session->username  ?></li>
             <li class="list-group-item"><?= $this->session->email  ?></li>
             <li class="list-group-item"><a href="<?= base_url() ?>dashboard/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+          </ul>
 
-            
+        </div>
+
+        <div class="card" style="height: 130px;">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Invoices</b></li>
+            <li class="list-group-item">
+              
+              <?php 
+                if ($jml_invo == 0) {
+                  echo '<b>Tidak ada inivoice</b>';
+                }else{ ?>
+                 
+                  <p style="font-weight: bold"><?= $jml_invo ?> ( Pending )</p><a href="invoices">Lihat</a>
+              
+              <?php } ?>
+
+            </li>
             
           </ul>
 

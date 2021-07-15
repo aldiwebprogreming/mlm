@@ -37,31 +37,28 @@ class Snap extends CI_Controller {
     {
 		
 		// Required
-		$jumlah = $this->input->get('gross');
-		$nama = $this->input->get('nama');
+		$harga = $this->input->post('harga');
+		$nama_produk = $this->input->post('nama_produk');
+		$name = $this->input->post('name');
+		$email = $this->input->post('email');
+		
 		$transaction_details = array(
 		  'order_id' => rand(),
-		  'gross_amount' => $jumlah, // no decimal allowed for creditcard
+		  'gross_amount' => $harga, // no decimal allowed for creditcard
 		);
 
 		// Optional
 		$item1_details = array(
 		  'id' => 'a1',
-		  'price' => 400,
+		  'price' => $harga,
 		  'quantity' => 1,
-		  'name' => $nama,
+		  'name' =>$nama_produk,
 		);
 
-		// Optional
-		$item2_details = array(
-		  'id' => 'a2',
-		  'price' => 400,
-		  'quantity' => 1,
-		  'name' => "Orange"
-		);
+		
 
 		// Optional
-		$item_details = array ($item1_details, $item2_details);
+		$item_details = array ($item1_details);
 
 		// Optional
 		$billing_address = array(
@@ -87,12 +84,12 @@ class Snap extends CI_Controller {
 
 		// Optional
 		$customer_details = array(
-		  'first_name'    => "Andri",
-		  'last_name'     => "Litani",
-		  'email'         => "andri@litani.com",
-		  'phone'         => "081122334455",
-		  'billing_address'  => $billing_address,
-		  'shipping_address' => $shipping_address
+		  'first_name'    => $name,
+		  'last_name'     => "",
+		  'email'         => $email,
+		  'phone'         => "",
+		  // 'billing_address'  => $billing_address,
+		  // 'shipping_address' => $shipping_address
 		);
 
 		// Data yang akan dikirim untuk request redirect_url.
@@ -123,10 +120,41 @@ class Snap extends CI_Controller {
 
     public function finish()
     {
-    	$result = json_decode($this->input->post('result_data'));
-    	echo 'RESULT <br><pre>';
-    	var_dump($result);
-    	echo '</pre>' ;
+
+    	$name = $this->input->post('name');
+    	$email = $this->input->post('email');
+    	$nama_produk = $this->input->post('nama_produk');
+    	$kode_produk = $this->input->post('kode_produk');
+    	$nama_produk = $this->input->post('nama_produk');
+
+    	$result = json_decode($this->input->post('result_data'), true);
+    	// echo 'RESULT <br><pre>';
+    	// var_dump($result);
+    	// echo '</pre>' ;
+
+    	$data = [
+    		'order_id' => $result['order_id'],
+    		'kode_produk' => $kode_produk,
+    		'kode_user' => $this->input->post('kode_user'),
+    		'nama_produk' => $nama_produk,
+    		'name' => $name,
+    		'email' => $email,
+    		'total' => $result['gross_amount'],
+    		'payment_type' => $result['payment_type'],
+    		// 'bank' => $result['va_numbers'][0]['bank'],
+    		// 'va_number' => $result['va_numbers'][0]['va_number'],
+    		'pdf_url' => $result['pdf_url'],
+    		'status_code' => $result['status_code'],
+    	];
+
+    	$input = $this->db->insert('tbl_transaksi', $data);
+    	if ($input) {
+    		redirect('ebunga/invoices');
+    	}else {
+
+    		echo "gagal";
+    	}
+
 
     }
 }
