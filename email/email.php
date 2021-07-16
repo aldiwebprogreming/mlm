@@ -151,7 +151,7 @@
                         <table border='0' cellpadding='0' cellspacing='0' role='presentation' style='border-collapse:separate;line-height:100%;width:210px;'>
                           <tr>
                             <td align='center' bgcolor='#feae39' role='presentation' style='background-color:#feae39;border:none;border-radius:3px;cursor:auto;height:25px;padding:10px 25px;' valign='middle'>
-                              <a href='http://localhost/mlm/ebunga/verifikasi/<?= $_GET['kode'] ?>' style='background:#feae39;color:#ffffff;font-family:Open Sans, Arial, sans-serif;font-size:17px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:uppercase;' target='_blank'>
+                              <a href='http://localhost/mlm_ebunga/ebunga/verifikasi/<?= $_GET['kode'] ?>' style='background:#feae39;color:#ffffff;font-family:Open Sans, Arial, sans-serif;font-size:17px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:uppercase;' target='_blank'>
                                 Verikasi
                               </a>
                             </td>

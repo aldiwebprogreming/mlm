@@ -41,7 +41,9 @@
 
         			$kode = rand(1, 100000);
 					$kode_user = "Ebunga-".$kode;
-					$founder = 'Ebunga-00001';
+					
+					$kd_founder = $this->db->get_where('tbl_register', array('kode_jaringan' => 'Ebunga-00001'))->row_array();
+					$kode_founder = $kd_founder['kode_user'];
 
         			$data = [
         				'kode_user' => $kode_user,
@@ -51,7 +53,7 @@
         				'no_telp' => $this->input->post('no_telp'),
         				'password' => password_hash($this->input->post('password2'), PASSWORD_DEFAULT),
         				'status' => 0,
-        				'kode_jaringan' => $founder,
+        				'kode_jaringan' => $kode_founder,
         			];
 
         			$email = $this->input->post('email');

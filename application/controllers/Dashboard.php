@@ -124,11 +124,11 @@
         $kode_jaringan = $this->session->kode_user;
         $data['jaringan'] = $this->db->get_where('tbl_register',['kode_jaringan' => $kode_jaringan])->result_array();
 
-        var_dump($data);
-
-        // $this->load->view('template/header2');
-        // $this->load->view('dashboard/jaringan');
-        // $this->load->view('template/footer');
+        // var_dump($data);
+          $data['produk'] = $this->m_data->get('tbl_produk');
+        $this->load->view('template/header2');
+        $this->load->view('dashboard/jaringan', $data);
+        $this->load->view('template/footer');
 
     }
 

@@ -139,7 +139,7 @@ body {
               
               <?php 
                 if ($jml_invo == 0) {
-                  echo '<b>Tidak ada inivoice</b>';
+                  echo '<b>Tidak ada invoice</b>';
                 }else{ ?>
                  
                   <p style="font-weight: bold"><a href="<?= base_url() ?>ebunga/invoices"><?= $jml_invo ?> ( Pending )</a></p>
