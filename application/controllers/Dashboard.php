@@ -22,7 +22,7 @@
     $this->db->where('email', $email);
     $this->db->where('status_code', 201);
     $data['jml_invo'] = $this->db->get('tbl_transaksi')->num_rows();
-     $this->load->view('template/header');
+     $this->load->view('template/header2');
      $this->load->view('dashboard/index', $data);
      $this->load->view('template/footer');
     }
@@ -44,7 +44,7 @@
 
              if ($this->form_validation->run() == false) {
 
-             $this->load->view('template/header');
+             $this->load->view('template/header2');
              $this->load->view('dashboard/tambah_member');
              $this->load->view('template/footer');
 
@@ -92,7 +92,7 @@
     function produk(){
        
         $data['produk'] = $this->m_data->get('tbl_produk');
-        $this->load->view('template/header');
+        $this->load->view('template/header2');
         $this->load->view('dashboard/produk', $data);
         $this->load->view('template/footer');
     }
@@ -102,7 +102,7 @@
 
         $data['det'] = $this->db->get_where('tbl_produk',['kode_produk' => $kode])->row_array();
          $data['produk'] = $this->m_data->get('tbl_produk');
-        $this->load->view('template/header');
+        $this->load->view('template/header2');
         $this->load->view('dashboard/detail', $data);
         $this->load->view('template/footer');
     }
@@ -116,6 +116,19 @@
         $this->load->view('template/header');
         $this->load->view('dashboard/invoices', $data);
         $this->load->view('template/footer');
+
+    }
+
+    function jaringan(){
+
+        $kode_jaringan = $this->session->kode_user;
+        $data['jaringan'] = $this->db->get_where('tbl_register',['kode_jaringan' => $kode_jaringan])->result_array();
+
+        var_dump($data);
+
+        // $this->load->view('template/header2');
+        // $this->load->view('dashboard/jaringan');
+        // $this->load->view('template/footer');
 
     }
 

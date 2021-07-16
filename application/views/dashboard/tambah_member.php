@@ -13,7 +13,7 @@
 
       <div class="card" style=";">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Data jaringan anda</li>
+            <li class="list-group-item"><i class="fas fa-street-view"></i> <b>Data jaringan anda</b></li>
             
           </ul>
         </div>
