@@ -113,7 +113,7 @@
 
         $data['produk'] = $this->db->get('tbl_produk')->result_array();
 
-        $this->load->view('template/header');
+        $this->load->view('template/header2');
         $this->load->view('dashboard/invoices', $data);
         $this->load->view('template/footer');
 

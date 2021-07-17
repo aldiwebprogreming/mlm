@@ -26,24 +26,47 @@
         </div>
       </div>
 
+        
+
+
       <div class="col-sm-8" style="margin-bottom: 30px;">
         <div class="card" style="height: 250px;">
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><b>Detail jaringan anda </b> </li>
 
             <?php foreach ($jaringan as $data2) {?>
-             <li class="list-group-item"><?= $data2['name'] ?> | <?= $data2['email'] ?> | <?= $data2['no_telp'] ?>| <?= $data2['kode_jaringan'] ?> <button id="lihat">Lihat Jaringan</button><button id="tutup" style="display: none">Tutup</button>
+             <li class="list-group-item"><?= $data2['name'] ?> | <?= $data2['email'] ?> | <?= $data2['no_telp'] ?>| <?= $data2['kode_jaringan'] ?> <button id="lihat<?= $data2['id'] ?>">Lihat Jaringan</button><button id="tutup<?= $data2['id'] ?>" style="display: none">Tutup</button>
 
-                <div id="det" style="display: none">
+                <div id="det<?= $data2['id'] ?>" style="display: none">
                 <hr>
-                 <?php
 
-                      $lavel2 = $this->db->get_where('tbl_register')
+                <?php
 
-                   ?>
+                      $lavel2 = $this->db->get_where('tbl_register', ['kode_jaringan' => $data2['kode_user']])->result_array();
+
+                      foreach ($lavel2 as $data) {?>
+                      <?= $data2['name'] ?> | <?= $data2['email'] ?> | <?= $data2['no_telp'] ?>| <?= $data2['kode_jaringan'] ?> <!-- <button id="lihat">Lihat Jaringan</button><button id="tutup" style="display: none">Tutup</button> -->
+                    <?php } ?>
+                
                 </div>
 
              </li>
+
+             <script>
+              $(document).ready(function(){
+                $("#lihat<?= $data2['id'] ?>").click(function(){
+                  $("#det<?= $data2['id'] ?>").show();
+                  $("#tutup<?= $data2['id'] ?>").show();
+                  $("#lihat<?= $data2['id'] ?>").hide();
+                })
+
+                $("#tutup<?= $data2['id'] ?>").click(function(){
+                  $("#det<?= $data2['id'] ?>").hide();
+                  $("#tutup<?= $data2['id'] ?>").hide();
+                  $("#lihat<?= $data2['id'] ?>").show();
+                })
+              })
+            </script>
 
            <?php } ?>
 
@@ -57,19 +80,5 @@
 </div>
 
 
-<script>
-  $(document).ready(function(){
-    $("#lihat").click(function(){
-      $("#det").show();
-      $("#tutup").show();
-      $("#lihat").hide();
-    })
 
-    $("#tutup").click(function(){
-      $("#det").hide();
-      $("#tutup").hide();
-      $("#lihat").show();
-    })
-  })
-</script>
 

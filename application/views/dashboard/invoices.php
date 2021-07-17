@@ -7,7 +7,7 @@
 </div>
 </div>
 
- <div class="container">
+ <div class="container" style="margin-bottom: 80px;">
   <div class="row">
 
       <div class="col-sm-4">
@@ -49,7 +49,7 @@
                   <tr>
                     <th scope="row"><?= $invo1['order_id'] ?></th>
                     <td><?= $invo1['nama_produk'] ?></td>
-                    <td>Otto</td>
+                    <td><?= $invo1['tgl_order'] ?></td>
                     <td><?= $invo1['total'] ?></td>
                     <td>
                       <?php 
