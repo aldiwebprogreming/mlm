@@ -66,6 +66,9 @@ $route['ebunga/produk'] ='dashboard/produk';
 $route['ebunga/detail/(:any)'] ='dashboard/detail_produk/$1';
 $route['ebunga/invoices'] ='dashboard/invoices';
 $route['ebunga/jaringan'] ='dashboard/jaringan';
+$route['ebunga/ecash'] ='dashboard/ecash';
+$route['ebunga/get-produk'] ='dashboard/produk_anda';
+
 
 
 

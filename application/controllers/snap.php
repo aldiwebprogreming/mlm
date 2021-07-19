@@ -118,7 +118,7 @@ class Snap extends CI_Controller {
 		echo $snapToken;
     }
 
-    public function finish()
+       public function finish()
     {
 
     	$name = $this->input->post('name');
@@ -149,6 +149,33 @@ class Snap extends CI_Controller {
 
     	$input = $this->db->insert('tbl_transaksi', $data);
     	if ($input) {
+    		$kode_user = $this->session->kode_user;
+    		$dataku =  $this->db->get_where('tbl_register',['kode_user' => $kode_user])->row_array();
+    		$kode_jar = $dataku['kode_jaringan'];
+    		$data3 = $this->db->get_where('tbl_register',['kode_jaringan' => $kode_jar], 2)->result_array();
+    		
+    		// input cas vendor
+    		$data = [
+
+    				'kode_user' =>$dataku['kode_jaringan'],
+    				'jml_cash' => 3,
+    			];
+
+    		$input = $this->db->insert('tbl_cash', $data);
+    				
+    		$cs = 2;
+
+    		foreach ($data3 as $duta) {
+
+    			$data = [
+
+    				'kode_user' =>$duta['kode_user'],
+    				'jml_cash' => $cs--,
+    			];
+    				
+    			$input = $this->db->insert('tbl_cash', $data);
+
+    		}
     		redirect('ebunga/invoices');
     	}else {
 
@@ -157,4 +184,5 @@ class Snap extends CI_Controller {
 
 
     }
+
 }

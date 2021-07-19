@@ -88,6 +88,10 @@
                   <li>
                     <a class="page-scroll" href="<?= base_url() ?>ebunga/produk">Produk</a>
                   </li>
+
+                  <li>
+                    <a class="page-scroll" href="<?= base_url() ?>ebunga/get-produk">Produk anda</a>
+                  </li>
                   
 
                   <li>

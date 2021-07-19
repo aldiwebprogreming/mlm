@@ -132,6 +132,31 @@
 
     }
 
+     function produk_anda(){
+
+        $invo = $this->db->get_where('tbl_transaksi',['email'=>$this->session->email])->row_array();
+        $kode_produk = $invo['kode_produk'];
+        $data['produk_anda'] = $this->db->get_where('tbl_produk',['kode_produk' => $kode_produk])->result_array();
+
+        $data['produk'] = $this->db->get('tbl_produk')->result_array();
+        $this->load->view('template/header2');
+        $this->load->view('dashboard/get_produk', $data);
+        $this->load->view('template/footer');
+    }
+
+
+    function ecash(){
+
+        $kode_user = $this->session->kode_user;
+        $this->db->select_sum('jml_cash');
+        $data['jml'] = $this->db->get_where('tbl_cash',['kode_user' => $kode_user])->row_array();
+
+        $data['produk'] = $this->m_data->get('tbl_produk');
+        $this->load->view('template/header2');
+        $this->load->view('dashboard/ecash', $data);
+        $this->load->view('template/footer');
+    }
+
 
     }
 
