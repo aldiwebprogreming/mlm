@@ -157,7 +157,7 @@ body {
     </div>
 
     <div class="col-sm-8">
-      <div class="row">
+    <div class="row">
 
     <div class="col-md-6">
      <div class="card" style="background: radial-gradient(#f588d8, #c0a6e5);">

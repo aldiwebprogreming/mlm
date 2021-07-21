@@ -44,14 +44,16 @@
 
              if ($this->form_validation->run() == false) {
 
+                $data['jr'] = $this->db->get_where('tbl_register',['kode_user' => $this->session->kode_user])->row_array();
+
              $this->load->view('template/header2');
-             $this->load->view('dashboard/tambah_member');
+             $this->load->view('dashboard/tambah_member', $data);
              $this->load->view('template/footer');
 
          }else {
 
              $kode = rand(1, 100000);
-                 $kode_user = "Ebunga-".$kode;
+             $kode_user = "Ebunga-".$kode;
 
                  $data = [
                      'kode_user' => $kode_user,
@@ -61,7 +63,7 @@
                      'no_telp' => $this->input->post('no_telp'),
                      'password' => password_hash($this->input->post('password2'), PASSWORD_DEFAULT),
                      'status' => 0,
-                     'kode_jaringan' => $this->input->post('kode_founder'),
+                     'kode_jaringan' =>  $this->input->post('kode_jaringan'). " ". $this->input->post('kode_founder') ,
                  ];
 
                  $email = $this->input->post('email');
@@ -124,8 +126,10 @@
         $kode_jaringan = $this->session->kode_user;
         $data['jaringan'] = $this->db->get_where('tbl_register',['kode_jaringan' => $kode_jaringan])->result_array();
 
-        // var_dump($data);
-          $data['produk'] = $this->m_data->get('tbl_produk');
+        
+
+       
+        $data['produk'] = $this->m_data->get('tbl_produk');
         $this->load->view('template/header2');
         $this->load->view('dashboard/jaringan', $data);
         $this->load->view('template/footer');
@@ -155,6 +159,25 @@
         $this->load->view('template/header2');
         $this->load->view('dashboard/ecash', $data);
         $this->load->view('template/footer');
+    }
+
+
+    function sms(){
+         $email_api = urlencode("alldii1956@gmail.com");
+        $passkey_api = urlencode("Hm123123");
+        $no_hp_tujuan = urlencode("083138184143");
+        $isi_pesan = urlencode("Coba kirim SMS");
+
+        $url = "https://reguler.medansms.co.id/sms_api.php?action=kirim_sms&email=".$email_api."&passkey=".$passkey_api."&no_tujuan=".$no_hp_tujuan."&pesan=".$isi_pesan;
+        $result = file_get_contents($url);
+        $data = explode("~~~", $result);
+
+        echo $data[0]; //1=SUKSES, selain itu GAGAL
+        echo $data[1]; //Jumlah Nomor Tujuan Valid
+        echo $data[2]; //Jumlah Nomor Tujuan yang dapat dikirim SMS
+        echo $data[3]; //Total Kredit yang digunakan
+        echo $data[4]; //Sisa Kredit
+        echo $data[5]; //Jenis Paket SMS (1=SMS Gratis, 0=SMS Reguler/SMS Center/SMS Masking
     }
 
 

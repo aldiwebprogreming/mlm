@@ -41,6 +41,14 @@
                 </div>
 
                 <div class="form-group">
+                  <label for="exampleInputEmail1">Jaringan</label>
+                  <input type="text" name="kode_jaringan" disabled="" class="form-control" aria-describedby="emailHelp" value="<?= $jr['kode_jaringan']  ?>">
+
+                   <input type="hidden" name="kode_jaringan" class="form-control" aria-describedby="emailHelp" value=" <?= $jr['kode_jaringan'] ?>">
+                  
+                </div>
+
+                <div class="form-group">
                   <label for="exampleInputEmail1">Nama</label>
                   <input type="text" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan nama">
                   <?= form_error('nama', '<small class="text-danger pl-3">', '</sm <div class="form-group">all>'); ?>

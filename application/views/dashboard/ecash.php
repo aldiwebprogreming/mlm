@@ -144,7 +144,7 @@ body {
                   <i class="fas fa-wallet"  style="font-size: 120px; color: white;"></i>
                   <span style="margin-left: 10px; font-size: 24px; color: white; font-weight: bold;">Ecash</span>
                   <p style="color: white; float: right; font-size: 70px; margin-left: 60px; margin-top: 30px;">Rp <?= $jml['jml_cash'] ?></p><br>
-                 <button type="button" style="margin-top: 50px;" class="btn btn-primary btn-lg btn-block">Gunakan Ecash</button>
+                <!--  <button type="button" style="margin-top: 50px;" class="btn btn-primary btn-lg btn-block">Gunakan Ecash</button> -->
                 </div>
                 </div>
      
