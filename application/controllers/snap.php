@@ -165,7 +165,7 @@ class Snap extends CI_Controller {
                      if ($i == 0) {
 
                     $harga = $result['gross_amount'];
-                    $persen = 5 / 100 ;
+                    $persen = 1 / 100 ;
                     $ecash = $persen * $harga;
 
                     $data = [
@@ -176,7 +176,7 @@ class Snap extends CI_Controller {
                     $this->db->insert('tbl_cash', $data);
                     }else{
                     $harga = $result['gross_amount'];
-                    $persen = 1 / 100 ;
+                    $persen = 0.5 / 100 ;
                     $ecash = $persen * $harga;
 
                     $data = [
@@ -196,7 +196,7 @@ class Snap extends CI_Controller {
                      if ($i == 0) {
 
                     $harga = $result['gross_amount'];
-                    $persen = 5 / 100 ;
+                    $persen = 1 / 100 ;
                     $ecash = $persen * $harga;
 
                     $data = [
@@ -216,7 +216,7 @@ class Snap extends CI_Controller {
                     if ($i == 0) {
 
                     $harga = $result['gross_amount'];
-                    $persen = 5 / 100 ;
+                    $persen = 1 / 100 ;
                     $ecash = $persen * $harga;
 
                     $data = [
@@ -227,7 +227,7 @@ class Snap extends CI_Controller {
                     $this->db->insert('tbl_cash', $data);
                     } elseif ($i == 1) {
                          $harga = $result['gross_amount'];
-                        $persen = 1 / 100 ;
+                        $persen = 0.5 / 100 ;
                         $ecash = $persen * $harga;
                          $data = [
                         'kode_user' => $arr[$i],
@@ -237,7 +237,7 @@ class Snap extends CI_Controller {
                     $this->db->insert('tbl_cash', $data);
                     } else {
                          $harga =  $result['gross_amount'];
-                        $persen = 0.5 / 100 ;
+                        $persen = 0.1/ 100 ;
                         $ecash = $persen * $harga;
 
                          $data = [

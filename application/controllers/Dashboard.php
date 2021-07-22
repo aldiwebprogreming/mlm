@@ -63,7 +63,7 @@
                      'no_telp' => $this->input->post('no_telp'),
                      'password' => password_hash($this->input->post('password2'), PASSWORD_DEFAULT),
                      'status' => 0,
-                     'kode_jaringan' =>  $this->input->post('kode_jaringan'). " ". $this->input->post('kode_founder') ,
+                     'kode_jaringan' =>  $this->input->post('kode_founder')."".$this->input->post('kode_jaringan') ,
                  ];
 
                  $email = $this->input->post('email');
