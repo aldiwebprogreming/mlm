@@ -151,31 +151,106 @@ class Snap extends CI_Controller {
     	if ($input) {
     		$kode_user = $this->session->kode_user;
     		$dataku =  $this->db->get_where('tbl_register',['kode_user' => $kode_user])->row_array();
-    		$kode_jar = $dataku['kode_jaringan'];
-    		$data3 = $this->db->get_where('tbl_register',['kode_jaringan' => $kode_jar], 2)->result_array();
-    		
-    		// input cas vendor
-    		$data = [
+    		$kode = $dataku['kode_jaringan'];
+            $arr = explode (" ",$kode);
+            $jm_arr = count($arr);
 
-    				'kode_user' =>$dataku['kode_jaringan'],
-    				'jml_cash' => 3,
-    			];
+            if ($jm_arr  == 2) {
 
-    		$input = $this->db->insert('tbl_cash', $data);
-    				
-    		$cs = 2;
+                 $jm = 3;
 
-    		foreach ($data3 as $duta) {
+                for ($i=0; $i < 2 ; $i++) { 
 
-    			$data = [
+                    
+                     if ($i == 0) {
 
-    				'kode_user' =>$duta['kode_user'],
-    				'jml_cash' => $cs--,
-    			];
-    				
-    			$input = $this->db->insert('tbl_cash', $data);
+                    $harga = $result['gross_amount'];
+                    $persen = 5 / 100 ;
+                    $ecash = $persen * $harga;
 
-    		}
+                    $data = [
+                        'kode_user' => $arr[$i],
+                        'jml_cash' => $ecash,
+                    ];
+
+                    $this->db->insert('tbl_cash', $data);
+                    }else{
+                    $harga = $result['gross_amount'];
+                    $persen = 1 / 100 ;
+                    $ecash = $persen * $harga;
+
+                    $data = [
+                        'kode_user' => $arr[$i],
+                        'jml_cash' => $ecash,
+                    ];
+
+                    $this->db->insert('tbl_cash', $data);
+                    }
+                }
+                
+            }elseif ($jm_arr == 1) {
+                $jm = 3;
+
+                for ($i=0; $i < 1 ; $i++) { 
+                   
+                     if ($i == 0) {
+
+                    $harga = $result['gross_amount'];
+                    $persen = 5 / 100 ;
+                    $ecash = $persen * $harga;
+
+                    $data = [
+                        'kode_user' => $arr[$i],
+                        'jml_cash' => $ecash,
+                    ];
+
+                    $this->db->insert('tbl_cash', $data);
+                    }
+                }
+            } else {
+
+              
+
+                for ($i=0; $i < 3 ; $i++) { 
+
+                    if ($i == 0) {
+
+                    $harga = $result['gross_amount'];
+                    $persen = 5 / 100 ;
+                    $ecash = $persen * $harga;
+
+                    $data = [
+                        'kode_user' => $arr[$i],
+                        'jml_cash' => $ecash,
+                    ];
+
+                    $this->db->insert('tbl_cash', $data);
+                    } elseif ($i == 1) {
+                         $harga = $result['gross_amount'];
+                        $persen = 1 / 100 ;
+                        $ecash = $persen * $harga;
+                         $data = [
+                        'kode_user' => $arr[$i],
+                        'jml_cash' => $ecash,
+                    ];
+
+                    $this->db->insert('tbl_cash', $data);
+                    } else {
+                         $harga =  $result['gross_amount'];
+                        $persen = 0.5 / 100 ;
+                        $ecash = $persen * $harga;
+
+                         $data = [
+                        'kode_user' => $arr[$i],
+                        'jml_cash' => $ecash,
+                    ];
+
+                    $this->db->insert('tbl_cash', $data);
+                    }
+                   
+                }
+            }
+
     		redirect('ebunga/invoices');
     	}else {
 
