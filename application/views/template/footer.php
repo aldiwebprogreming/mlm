@@ -1,3 +1,5 @@
+
+
 <footer>
     <div class="footer-area">
       <div class="container">
@@ -51,12 +53,12 @@
               <div class="footer-head">
                 <h4>Instagram</h4>
                 <div class="flicker-img">
-                  <!-- <a href="#"><img src="img/portfolio/1.jpg" alt=""></a>
+                  <a href="#"><img src="img/portfolio/1.jpg" alt=""></a>
                   <a href="#"><img src="img/portfolio/2.jpg" alt=""></a>
                   <a href="#"><img src="img/portfolio/3.jpg" alt=""></a>
                   <a href="#"><img src="img/portfolio/4.jpg" alt=""></a>
                   <a href="#"><img src="img/portfolio/5.jpg" alt=""></a>
-                  <a href="#"><img src="img/portfolio/6.jpg" alt=""></a> -->
+                  <a href="#"><img src="img/portfolio/6.jpg" alt=""></a>
                 </div>
               </div>
             </div>
@@ -87,6 +89,8 @@
       </div>
     </div>
   </footer>
+
+  <br>
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 

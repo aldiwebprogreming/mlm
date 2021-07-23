@@ -44,6 +44,12 @@
                 </thead>
                 <tbody>
 
+                  <?php 
+                    if ($produk_anda == false) {
+                      echo "tidak ada produk";
+                    } else {
+                   ?>
+
                   <?php foreach ($produk_anda as $data2) {?>
                   <tr>
                     <td><?= $data2['judul_produk'] ?></td>
@@ -54,7 +60,7 @@
                   
                   </tr>
 
-                <?php } ?>
+                <?php }} ?>
                   
                 </tbody>
               </table>

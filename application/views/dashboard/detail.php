@@ -40,9 +40,14 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><b>Detail Produk </b> </li>
 
-            <li class="list-group-item"><?= $det['judul_produk']  ?></li>
-            <li class="list-group-item"><?= $det['keterangan_produk']  ?></li>
-            <li class="list-group-item"><?= $det['harga']  ?></li>
+            <li class="list-group-item"><b>Judul Produk : </b> <?= $det['judul_produk']  ?></li>
+            <li class="list-group-item"><b>Keterangan : </b><?= $det['keterangan_produk']  ?></li>
+
+            <li class="list-group-item"><b>Harga : </b><?= $det['harga']  ?></li>
+            <li class="list-group-item"><b>Nilai voucher : </b><?= $det['nilai_voucher'] ?> /vcr </li>
+
+             <li class="list-group-item"><b>Jumlah Voucher : </b><?= $det['jumlah_voucher'] ?> </li>
+
 
             <li class="list-group-item"><button type="button" id="pay-button" data-amount="800" class="btn btn-primary btn-lg btn-block">Pay!</button></li>           
           </ul>
@@ -119,3 +124,7 @@
   });
 
   </script>
+
+  <br>
+  <br>
+  <br>

@@ -64,6 +64,7 @@
                      'password' => password_hash($this->input->post('password2'), PASSWORD_DEFAULT),
                      'status' => 0,
                      'kode_jaringan' =>  $this->input->post('kode_founder')."".$this->input->post('kode_jaringan') ,
+                     'kode_rule' => $this->input->post('kode_founder'),
                  ];
 
                  $email = $this->input->post('email');
@@ -124,10 +125,13 @@
     function jaringan(){
 
         $kode_jaringan = $this->session->kode_user;
-        $data['jaringan'] = $this->db->get_where('tbl_register',['kode_jaringan' => $kode_jaringan])->result_array();
 
-        
+        $data['jml_row'] = $this->db->get('tbl_register')->num_rows();
 
+        // $this->db->like('kode_jaringan', $kode_jaringan);
+        // $data['jaringan'] = $this->db->get_where('tbl_register', ['kode_rule' => $kode_jaringan])->result_array();     
+
+        $data['jaringan']  = $this->db->get('tbl_register')->result_array();
        
         $data['produk'] = $this->m_data->get('tbl_produk');
         $this->load->view('template/header2');
@@ -139,8 +143,14 @@
      function produk_anda(){
 
         $invo = $this->db->get_where('tbl_transaksi',['email'=>$this->session->email])->row_array();
+        if ($invo == null) {
+        $data['produk_anda'] = 0;
+            
+        }else{
         $kode_produk = $invo['kode_produk'];
         $data['produk_anda'] = $this->db->get_where('tbl_produk',['kode_produk' => $kode_produk])->result_array();
+
+    }
 
         $data['produk'] = $this->db->get('tbl_produk')->result_array();
         $this->load->view('template/header2');
