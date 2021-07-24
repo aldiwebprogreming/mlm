@@ -71,4 +71,21 @@ $route['ebunga/get-produk'] ='dashboard/produk_anda';
 
 
 
+// route admin
+
+$route['dashboard/home'] = 'admin/index';
+$route['dashboard/produk'] = 'admin/data_produk';
+$route['dashboard/tambah-produk'] = 'admin/tambah_produk';
+
+$route['dashboard/member'] = 'admin/data_member';
+$route['dashboard/tambah-member'] = 'admin/tambah_member';
+$route['dashboard/seting-member'] = 'admin/seting_member';
+
+$route['dashboard/total-ecash'] = 'admin/total_ecash';
+$route['dashboard/seting-ecash'] = 'admin/seting_ecash';
+
+$route['dashboard/admin'] = 'admin/data_admin';
+$route['dashboard/tambah-admin'] = 'admin/tambah_admin';
+
+
 
