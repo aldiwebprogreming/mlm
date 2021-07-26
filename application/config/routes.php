@@ -90,6 +90,9 @@ $route['dashboard/set-detail/(:any)'] = 'admin/detail_setmember/$1';
 $route['dashboard/hapus-lider/(:any)'] = 'admin/hapus_lider/$1';
 $route['dashboard/jaringan'] = 'admin/jaringan';
 
+$route['dashboard/vendor'] = 'admin/vendor';
+
+
 $route['dashboard/total-ecash'] = 'admin/total_ecash';
 $route['dashboard/seting-ecash'] = 'admin/seting_ecash';
 
@@ -97,6 +100,10 @@ $route['dashboard/admin'] = 'admin/data_admin';
 $route['dashboard/tambah-admin'] = 'admin/tambah_admin';
 
 $route['dashboard/login'] = 'login/index';
+
+
+
+
 
 
 

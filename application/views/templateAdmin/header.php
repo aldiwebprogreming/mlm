@@ -66,7 +66,7 @@
               </li>
 
                <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i> <span>Member</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-users"></i> <span>Member</span></a>
                 <ul class="dropdown-menu">
 
                    <li><a class="nav-link" href="<?= base_url('dashboard/member') ?>">Data Member</a></li>
@@ -81,7 +81,7 @@
               </li>
 
                <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i> <span>Ecash</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-wallet"></i> <span>Ecash</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="<?= base_url('dashboard/total-ecash') ?>">Total Ecash</a></li>
                   <li><a class="nav-link" href="<?= base_url('dashboard/seting-ecash') ?>">Seting Ecash</a></li>
@@ -90,12 +90,16 @@
               </li>
 
                <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i> <span>Admin</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user-lock"></i> <span>Admin</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="<?= base_url('dashboard/admin') ?>">Data Admin</a></li>
                   <li><a class="nav-link" href="<?= base_url('dashboard/tambah-admin') ?>">Tambah Admin</a></li>
                     
                 </ul>
+              </li>
+
+               <li class="menu-header">Vendor</li>
+                <li class=""><a class="nav-link" href="<?= base_url('dashboard/vendor') ?>"><i class="fas fa-portrait"></i> <span>Vendor</span></a></li>
               </li>
 
 

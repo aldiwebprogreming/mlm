@@ -377,6 +377,35 @@
 
 	 }
 
+	 function vendor(){
+	 	$data['vendor'] = $this->db->get('tbl_vendor', 1)->row_array();
+	 	
+	 	$this->load->view('templateAdmin/header');
+	 	$this->load->view('admin/vendor', $data);
+	 	$this->load->view('templateAdmin/footer');
+
+	 	if ($this->input->post('update')) {
+	 		
+	 		$data = [
+	 			'bonus_vendor' => $this->input->post('bonus'),
+	 		];
+
+	 		$id = $this->input->post('id');
+	 		$this->db->where('id', $id);
+			$this->db->update('tbl_vendor', $data);
+
+			$this->session->set_flashdata('message', 'swal("Sukses!!", "Bonus vendor berhasil update", "success");');
+           redirect('dashboard/vendor'); 
+
+	 	}
+	 }
+
+	 function update_vendor(){
+	 	$this->load->view('templateAdmin/header');
+	 	$this->load->view('admin/update_vendor');
+	 	$this->load->view('templateAdmin/footer');
+	 }
+
 
 
  }
