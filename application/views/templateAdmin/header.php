@@ -102,6 +102,10 @@
                 <li class=""><a class="nav-link" href="<?= base_url('dashboard/vendor') ?>"><i class="fas fa-portrait"></i> <span>Vendor</span></a></li>
               </li>
 
+               <li class="menu-header">Voucher</li>
+                <li class=""><a class="nav-link" href="<?= base_url('dashboard/voucher') ?>"><i class="fas fa-credit-card"></i> <span>Data Voucher</span></a></li>
+              </li>
+
 
               <!-- <li class="active"><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li> -->
 

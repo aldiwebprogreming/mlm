@@ -91,6 +91,8 @@ $route['dashboard/hapus-lider/(:any)'] = 'admin/hapus_lider/$1';
 $route['dashboard/jaringan'] = 'admin/jaringan';
 
 $route['dashboard/vendor'] = 'admin/vendor';
+$route['dashboard/voucher'] = 'admin/data_voucher';
+$route['dashboard/tambah-voucher'] = 'admin/tambah_voucher';
 
 
 $route['dashboard/total-ecash'] = 'admin/total_ecash';

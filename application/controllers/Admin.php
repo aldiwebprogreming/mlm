@@ -400,10 +400,44 @@
 	 	}
 	 }
 
-	 function update_vendor(){
+	 function data_voucher(){
+	 	$data['voucher'] = $this->db->get('tbl_voucher')->result_array();
 	 	$this->load->view('templateAdmin/header');
-	 	$this->load->view('admin/update_vendor');
+	 	$this->load->view('admin/data_voucher', $data);
 	 	$this->load->view('templateAdmin/footer');
+	 }
+
+	 function tambah_voucher(){
+
+	 	$this->form_validation->set_rules('name','name voucher','required|trim');
+	 	$this->form_validation->set_rules('bonus','bonus','required|trim');
+
+	 	if ($this->form_validation->run() == FALSE) {
+		 	$this->load->view('templateAdmin/header');
+		 	$this->load->view('admin/tambah_voucher');
+		 	$this->load->view('templateAdmin/footer');
+	 	}else{
+
+	 		$data = [
+	 			'name' => $this->input->post('name'),
+	 			'bonus' => $this->input->post('bonus'),
+	 		];
+
+	 		$this->db->insert('tbl_voucher', $data);
+	 		$this->session->set_flashdata('message', 'swal("Sukses!!", "Voucher berhasil ditambah", "success");');
+           redirect('dashboard/voucher'); 
+	 	}
+	 			
+	 	
+	 }
+
+	 function hapus_voucher(){
+
+	 	$id = $this->input->get('id');
+	 	
+	 	$this->db->delete('tbl_voucher', array('id' => $id));
+ 		$this->session->set_flashdata('message', 'swal("Sukses!!", "Voucher berhasil dihapus", "success");');
+           redirect('dashboard/voucher'); 
 	 }
 
 
