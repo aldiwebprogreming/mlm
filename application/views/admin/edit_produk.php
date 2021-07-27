@@ -62,6 +62,31 @@
                        <small style="color: red;"><?php echo form_error('harga_produk'); ?></small>
                     </div>
 
+                   <div class="form-group">
+                      <label>Jenis Voucher</label>
+                        <select class="form-control" name="jenis_voucher" id="voucher">
+                          <?php 
+                          $name = $produk['jenis_voucher'];
+                          echo $name;
+                          $vc = $this->db->get_where('tbl_voucher',['name' => $name])->row_array();
+                           ?>
+                          <option value="<?= $vc['id'] ?>"><?= $produk['jenis_voucher'] ?></option>
+                          <?php foreach ($voucher as $data) {?>
+                             <option value="<?= $data['id'] ?>"><?= $data['name'] ?></option>
+                           <?php } ?>
+                        </select>
+                       <small style="color: red;"><?php echo form_error('jml_voucher'); ?><?php echo set_value('jml_voucher'); ?></small>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Bonus</label>
+                        <div id="bonus">
+                          <input type="number" class="form-control" placeholder="" name="bonus" value="<?= $produk['bonus'] ?>" readonly>
+                        </div>
+
+                        
+                    </div>
+
                     <div class="form-group">
                       <label>Jumlah Voucher</label>
                       <input type="number" class="form-control" placeholder="" name="jml_voucher" value="<?= $produk['jumlah_voucher'] ?>">
@@ -95,6 +120,30 @@
                       </div>
                     </div>
 
+                    <div class="form-group">
+                      <label>Tgl Terbit</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                              <i class="fas fa-calendar-week"></i>
+                          </div>
+                        </div>
+                        <input type="date" class="form-control datepicker" value="<?= $produk['tgl_terbit'] ?>" name="tgl_terbit">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Batas Berlaku</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                              <i class="fas fa-calendar-week"></i>
+                          </div>
+                        </div>
+                        <input type="date" class="form-control phone-number" value="<?= $produk['tgl_batasterbit'] ?>" name="batas_terbit">
+                      </div>
+                    </div>
+
                     <input type="submit" name="kirim" class="btn btn-primary" value="Edit Produk">
                     <a href="<?= base_url('dashboard/produk') ?>" class="btn btn-success">Kembali </a>
                     </form>
@@ -113,3 +162,17 @@
         </section>
       </div>
      
+      <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
+      <script>
+       $(document).ready(function(){
+          $('#voucher').change(function(){
+
+            var id = $(this).val();
+          
+             var url = "<?= base_url('admin/bonus?id=') ?>"+id;
+              $("#bonus").load(url);
+          });
+        });
+
+      </script>

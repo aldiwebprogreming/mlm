@@ -25,6 +25,7 @@
   <script src="<?= base_url() ?>assets_admin/js/custom.js"></script>
 
   <script src="<?= base_url()  ?>assets_admin/alert.js"></script>
+  <script src="<?= base_url()  ?>assets_admin/js/page/forms-advanced-forms.js"></script>
     <?php echo "<script>".$this->session->flashdata('message')."</script>"?>
 
   <!-- Page Specific JS File -->

@@ -53,20 +53,27 @@
  		   $this->form_validation->set_rules('jml_voucher', 'jumlah voucher', 'required|trim');
  		   $this->form_validation->set_rules('nilai_voucher', 'nilai voucher', 'required|trim');
  		   if ($this->form_validation->run() == false) {
- 		
+
+ 		$data['voucher'] = $this->db->get('tbl_voucher')->result_array();
  		$this->load->view('templateAdmin/header');
  		$this->load->view('admin/edit_produk', $data);
  		$this->load->view('templateAdmin/footer'); 	
 
  		} else{
+ 			
+ 			$jenis_vc = $this->db->get_where('tbl_voucher',['id' => $this->input->post('jenis_voucher')])->row_array();
 
  				$data = [
  			
  			'judul_produk' => $this->input->post('judul_produk'),
  			'keterangan_produk' => $this->input->post('ket_produk'),
  			'harga' => $this->input->post('harga_produk'),
+ 			'jenis_voucher' => $jenis_vc['name'],
  			'nilai_voucher' => $this->input->post('nilai_voucher'),
  			'jumlah_voucher' => $this->input->post('jml_voucher'),
+ 			'bonus' => $this->input->post('bonus'),
+ 			'tgl_terbit' => $this->input->post('tgl_terbit'),
+ 			'tgl_batasterbit' => $this->input->post('batas_terbit'),
  			
  		];
 
@@ -106,20 +113,34 @@
          $kode2 = rand(1, 100000);
          $data['kd_voucher'] = "PTB".$kode2;
 
+         $data['voucher'] = $this->db->get('tbl_voucher')->result_array();
+
+        $terbit            = date("d-m-Y");
+		$setahun        = mktime(0,0,0,date("n"),date("j")+365,date("Y"));
+		$batas        = date("d-m-Y", $setahun);
+		$data['terbit'] = $terbit;
+		$data['batas'] = $batas;
+
  		$this->load->view('templateAdmin/header');
  		$this->load->view('admin/tambah_produk', $data);
  		$this->load->view('templateAdmin/footer');
 
  	} else {
 
+ 		$jenis_vc = $this->db->get_where('tbl_voucher',['id' => $this->input->post('jenis_voucher')])->row_array();
+
  		$data = [
  			'kode_produk' => $this->input->post('kd_produk'),
  			'judul_produk' => $this->input->post('judul_produk'),
  			'keterangan_produk' => $this->input->post('ket_produk'),
  			'harga' => $this->input->post('harga_produk'),
+ 			'jenis_voucher' => $jenis_vc['name'],
  			'nilai_voucher' => $this->input->post('nilai_voucher'),
  			'jumlah_voucher' => $this->input->post('jml_voucher'),
  			'kode_voucher' => $this->input->post('kd_voucher'),
+ 			'bonus' => $this->input->post('bonus'),
+ 			'tgl_terbit' => $this->input->post('tgl_terbit'),
+ 			'tgl_batasterbit' => $this->input->post('batas_terbit'),
  		];
 
  		$input = $this->db->insert('tbl_produk', $data);
@@ -417,10 +438,14 @@
 		 	$this->load->view('admin/tambah_voucher');
 		 	$this->load->view('templateAdmin/footer');
 	 	}else{
+	 		$nama_voucher = $this->input->post('name');
+	 		$slug = strtolower($nama_voucher);
+			$slug_vc = str_replace(" ", "-", $slug);
 
 	 		$data = [
 	 			'name' => $this->input->post('name'),
 	 			'bonus' => $this->input->post('bonus'),
+	 			'slug_vc' => $slug_vc,
 	 		];
 
 	 		$this->db->insert('tbl_voucher', $data);
@@ -438,6 +463,19 @@
 	 	$this->db->delete('tbl_voucher', array('id' => $id));
  		$this->session->set_flashdata('message', 'swal("Sukses!!", "Voucher berhasil dihapus", "success");');
            redirect('dashboard/voucher'); 
+	 }
+
+
+	 function bonus(){
+	 	$id = $this->input->get('id');
+	 	$data['bonus'] = $this->db->get_where('tbl_voucher',['id' => $id])->row_array();
+	 	$this->load->view('admin/bonus', $data);
+	 }
+
+
+	 function tgl(){
+
+	 	
 	 }
 
 
