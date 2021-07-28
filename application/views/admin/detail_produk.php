@@ -59,18 +59,18 @@
                         <tr>
                           <td>Jumlah Voucher</td>
                           <td>:</td>
-                          <td><?= $produk['kode_voucher'] ?></td>
+                          <td><?= $produk['jumlah_voucher'] ?></td>
                         </tr>
                         <tr>
                           <td>Nilai  Pervoucher</td>
                           <td>:</td>
                           <td><?= $produk['nilai_voucher'] ?></td>
                         </tr>
-                        <tr>
+                       <!--  <tr>
                           <td>Kode Voucher</td>
                           <td>:</td>
                           <td><?= $produk['kode_voucher'] ?></td>
-                        </tr>
+                        </tr> -->
                         <tr>
                           <td>Bonus</td>
                           <td>:</td>

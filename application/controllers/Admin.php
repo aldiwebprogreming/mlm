@@ -81,6 +81,18 @@
 
  		$this->db->where('kode_produk', $kode_produk);
 		$this->db->update('tbl_produk', $data);
+
+		$data = [
+ 			
+ 			'name_voucher' => $jenis_vc['name'],
+ 			'nilai_voucher' => $this->input->post('nilai_voucher'),
+ 			'tgl_terbit' => $this->input->post('tgl_terbit'),
+ 			'tgl_batasterbit' => $this->input->post('batas_terbit'),
+ 			
+ 		];
+
+ 		$this->db->where('kode_produk', $kode_produk);
+		$this->db->update('tbl_list_voucherproduk', $data);
 		
 		$this->session->set_flashdata('message', 'swal("Sukses!!", "Data berhasil diubah", "success");');
 		redirect("dashboard/produk");
@@ -90,6 +102,8 @@
 
  	function hapus_produk($produk){
  		$this->db->delete('tbl_produk', array('kode_produk' => $produk));
+ 		$this->db->delete('tbl_list_voucherproduk', array('kode_produk' => $produk));
+
  		$this->session->set_flashdata('message', 'swal("Sukses!!", "Produk berhasil dihapus", "success");');
            redirect('dashboard/produk'); 
  	}
@@ -137,13 +151,36 @@
  			'jenis_voucher' => $jenis_vc['name'],
  			'nilai_voucher' => $this->input->post('nilai_voucher'),
  			'jumlah_voucher' => $this->input->post('jml_voucher'),
- 			'kode_voucher' => $this->input->post('kd_voucher'),
  			'bonus' => $this->input->post('bonus'),
  			'tgl_terbit' => $this->input->post('tgl_terbit'),
- 			'tgl_batasterbit' => $this->input->post('batas_terbit'),
+         	'tgl_batasterbit' => $this->input->post('batas_terbit'),
+ 			
  		];
 
  		$input = $this->db->insert('tbl_produk', $data);
+
+ 		$loop = $this->input->post('jml_voucher');
+ 		for ($i=0; $i < $loop ; $i++) { 
+ 			
+ 			$kode2 = rand(1, 100000);
+         	$kd_v = "PTB".$kode2;
+
+         	$data = [
+         		'kode_produk' =>  $this->input->post('kd_produk'),
+         		'name_voucher' => $jenis_vc['name'],
+         		'nilai_voucher' => $this->input->post('nilai_voucher'),
+         		'kode_voucher' => $kd_v,
+         		'tgl_terbit' => $this->input->post('tgl_terbit'),
+         		'tgl_batasterbit' => $this->input->post('batas_terbit'),
+         	];
+
+
+         	$input = $this->db->insert('tbl_list_voucherproduk', $data);
+
+
+ 		}
+
+
 
  		if ($input == true) {
  		$this->session->set_flashdata('message', 'swal("Sukses!!", "Produk berhasil ditambahkan", "success");');

@@ -57,10 +57,12 @@
                             <strong>Rp.</strong>
                           </div>
                         </div>
-                        <input type="number" class="form-control phone-number" placeholder="" name="harga_produk" value="<?= $produk['harga'] ?>">
+                        <input type="number" v-model="harga" class="form-control phone-number" placeholder="" name="harga_produk">
                       </div>
                        <small style="color: red;"><?php echo form_error('harga_produk'); ?></small>
                     </div>
+
+
 
                    <div class="form-group">
                       <label>Jenis Voucher</label>
@@ -89,7 +91,7 @@
 
                     <div class="form-group">
                       <label>Jumlah Voucher</label>
-                      <input type="number" class="form-control" placeholder="" name="jml_voucher" value="<?= $produk['jumlah_voucher'] ?>">
+                      <input type="number" v-model="bagi" class="form-control" placeholder="" name="jml_voucher">
                        <small style="color: red;"><?php echo form_error('jml_voucher'); ?></small>
                     </div>
 
@@ -102,12 +104,12 @@
                             <strong>Rp.</strong>
                           </div>
                         </div>
-                        <input type="number" class="form-control phone-number" placeholder=" " name="nilai_voucher" value="<?= $produk['nilai_voucher'] ?>">
+                        <input type="number" v-model="total()" class="form-control phone-number" placeholder=" " name="nilai_voucher" value="<?= $produk['nilai_voucher'] ?>">
                       </div>
                        <small style="color: red;"><?php echo form_error('nilai_voucher'); ?></small>
                     </div>
 
-                    
+                   <!--  
                     <div class="form-group">
                       <label>Kode Voucher</label>
                       <div class="input-group">
@@ -118,7 +120,7 @@
                         </div>
                         <input type="text" class="form-control phone-number" value="<?= $produk['kode_voucher'] ?>" name="kd_voucher" readonly>
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                       <label>Tgl Terbit</label>
@@ -176,3 +178,23 @@
         });
 
       </script>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<script>
+  var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!',
+    harga:<?= $produk['harga'] ?>,
+    bagi: <?= $produk['jumlah_voucher'] ?>,
+  },
+
+  methods: {
+    total: function () {
+      return this.harga / this.bagi;
+    }
+  }
+
+})
+</script>

@@ -49,6 +49,8 @@
                        <small style="color: red;"><?php echo form_error('ket_produk'); ?></small>
                     </div>
 
+                    <div id="app">
+
                     <div class="form-group">
                       <label>Harga Produk</label>
                       <div class="input-group">
@@ -57,7 +59,7 @@
                             <strong>Rp.</strong>
                           </div>
                         </div>
-                        <input type="number" class="form-control phone-number" placeholder="" name="harga_produk" value="<?php echo set_value('harga_produk'); ?>">
+                        <input type="number" v-model = "harga" class="form-control phone-number" placeholder="" name="harga_produk" value="<?php echo set_value('harga_produk'); ?>">
                       </div>
                        <small style="color: red;"><?php echo form_error('harga_produk'); ?></small>
                     </div>
@@ -84,9 +86,18 @@
 
                     <div class="form-group">
                       <label>Jumlah Voucher</label>
-                      <input type="number" class="form-control" placeholder="" name="jml_voucher">
+                      <input type="number" v-model="bagi" class="form-control" placeholder="" name="jml_voucher">
                        <small style="color: red;"><?php echo form_error('jml_voucher'); ?><?php echo set_value('jml_voucher'); ?></small>
                     </div>
+
+                    <!-- <div id="app">
+                      <input v-model="harga" placeholder="edit saya">
+                      <input v-model="bagi" placeholder="edit saya">
+                      <p v-text="harga/bagi"></p>
+                      <p v-text='message'></p>
+                    </div> -->
+
+                   <!--  <p>{{total()}}</p> -->
 
                     
                     <div class="form-group">
@@ -97,10 +108,13 @@
                             <strong>Rp.</strong>
                           </div>
                         </div>
-                        <input type="number" class="form-control phone-number" placeholder=" " name="nilai_voucher" value="<?php echo set_value('nilai_voucher'); ?>">
+                        <input type="number" v-model="total()"  class="form-control phone-number" placeholder="" name="nilai_voucher" value="<?php echo set_value('nilai_voucher'); ?>" readonly>
                       </div>
                        <small style="color: red;"><?php echo form_error('nilai_voucher'); ?></small>
                     </div>
+
+                    </div>
+
 
                     
                     <div class="form-group">
@@ -169,4 +183,24 @@
         });
 
       </script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<script>
+  var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!',
+    harga:0,
+    bagi:0,
+  },
+
+  methods: {
+    total: function () {
+      return this.harga / this.bagi;
+    }
+  }
+
+})
+</script>
      

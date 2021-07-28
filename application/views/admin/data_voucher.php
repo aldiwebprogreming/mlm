@@ -43,7 +43,7 @@
                     <tr>
                       <th scope="row"><?= $no++; ?></th>
                       <td><?= $data['name'] ?></td>
-                      <td><?= $data['bonus'] ?></td>
+                      <td><?= $data['bonus'] ?>%</td>
                      
                       
                       <td>
