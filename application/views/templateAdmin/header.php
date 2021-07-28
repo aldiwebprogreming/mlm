@@ -100,6 +100,8 @@
 
                <li class="menu-header">Vendor</li>
                 <li class=""><a class="nav-link" href="<?= base_url('dashboard/vendor') ?>"><i class="fas fa-portrait"></i> <span>Vendor</span></a></li>
+
+                <li class=""><a class="nav-link" href="<?= base_url('dashboard/set-lider') ?>"><i class="fas fa-portrait"></i> <span>Seting Lider</span></a></li>
               </li>
 
                <li class="menu-header">Voucher</li>

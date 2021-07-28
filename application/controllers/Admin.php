@@ -297,18 +297,27 @@
  				'lider' => $this->input->post('lider'),
 
  			];
-
+ 			// proses pengecekan apakah data user ada data lider yang sama
  			$lider = $this->input->post('lider');
  			$cek = $this->db->get_where('tbl_register', ['lider' => $lider])->row_array();
  			if ($cek == true) {
  				$this->session->set_flashdata('message', 'swal("Gagal!!", "Lider sudah terdaftar", "warning");');
            redirect('dashboard/seting-member'); 
  			}else {
-
+ 				// prosese uddate data user menjadi lider di tbl_register
  				$this->db->where('kode_user', $member);
 				$this->db->update('tbl_register', $data);
+				// end
+
+				// proses input data lider ke tbl_lider
+				$data = [
+					'kode_user' => $member,
+					'name_lider' => $this->input->post('lider'),
+				];
+
+				$this->db->insert('tbl_lider', $data);
 				$this->session->set_flashdata('message', 'swal("Sukses!!", "Lider berhasil terdaftar", "success");');
-           redirect('dashboard/seting-member'); 
+           			redirect('dashboard/seting-member'); 
  			}
  		}
 
@@ -323,6 +332,9 @@
  		$this->db->where('kode_user', $member);
 		$this->db->update('tbl_register', $data);
  		$this->session->set_flashdata('message', 'swal("Sukses!!", "Lider berhasil dihapus", "success");');
+
+ 		$this->db->delete('tbl_lider', array('kode_user' => $member));
+
           redirect('dashboard/seting-member'); 
 
  	}
@@ -510,8 +522,23 @@
 	 }
 
 
-	 function tgl(){
+	 function set_lider(){
 
+	 		$this->load->view('templateAdmin/header');
+		 	$this->load->view('admin/set_lider');
+		 	$this->load->view('templateAdmin/footer');
+		 		$cek = $this->input->post('update');
+		 		if (isset($cek)) {
+		 			
+		 		
+		 		$data = [
+		 			'bonus' => $this->input->post('bonus'),
+		 		];
+
+		 		$this->db->update('tbl_lider', $data);
+		 		$this->session->set_flashdata('message', 'swal("Sukses!!", "Lider berhasil diset", "success");');
+          		 redirect('dashboard/set-lider'); 
+		 	}
 	 	
 	 }
 

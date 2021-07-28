@@ -100,8 +100,10 @@ $route['dashboard/seting-ecash'] = 'admin/seting_ecash';
 
 $route['dashboard/admin'] = 'admin/data_admin';
 $route['dashboard/tambah-admin'] = 'admin/tambah_admin';
+$route['dashboard/set-lider'] = 'admin/set_lider';
 
 $route['dashboard/login'] = 'login/index';
+
 
 
 
