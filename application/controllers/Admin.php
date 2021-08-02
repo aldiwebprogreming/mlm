@@ -128,12 +128,15 @@
          $data['kd_voucher'] = "PTB".$kode2;
 
          $data['voucher'] = $this->db->get('tbl_voucher')->result_array();
+         $data['jenis'] = $this->db->get('tbl_jenis_produk')->result_array();
 
         $terbit            = date("d-m-Y");
 		$setahun        = mktime(0,0,0,date("n"),date("j")+365,date("Y"));
 		$batas        = date("d-m-Y", $setahun);
 		$data['terbit'] = $terbit;
 		$data['batas'] = $batas;
+
+
 
  		$this->load->view('templateAdmin/header');
  		$this->load->view('admin/tambah_produk', $data);
@@ -143,16 +146,20 @@
 
  		$jenis_vc = $this->db->get_where('tbl_voucher',['id' => $this->input->post('jenis_voucher')])->row_array();
 
+ 		$jenis_produk = $this->db->get_where('tbl_jenis_produk',['id' => $this->input->post('jenis_produk')])->row_array();
+
  		$data = [
  			'kode_produk' => $this->input->post('kd_produk'),
  			'judul_produk' => $this->input->post('judul_produk'),
  			'keterangan_produk' => $this->input->post('ket_produk'),
  			'harga' => $this->input->post('harga_produk'),
+ 			'jenis_produk' => $jenis_produk['jenis'],
+ 			'bonus_sponsor' => $this->input->post('bonus_s'),
  			'jenis_voucher' => $jenis_vc['name'],
  			'nilai_voucher' => $this->input->post('nilai_voucher'),
  			'jumlah_voucher' => $this->input->post('jml_voucher'),
  			'bonus' => $this->input->post('bonus'),
- 			'tgl_terbit' => $this->input->post('tgl_terbit'),
+ 			'tgl_terbit' => $this->input->post ('tgl_terbit'),
          	'tgl_batasterbit' => $this->input->post('batas_terbit'),
  			
  		];
@@ -191,6 +198,78 @@
  		}
  	}
 
+ 	}
+
+ 	function jenis_produk(){
+ 		$data['jenis'] = $this->db->get('tbl_jenis_produk')->result_array();
+ 		$this->load->view('templateAdmin/header');
+ 		$this->load->view('admin/jenis_produk', $data);
+ 		$this->load->view('templateAdmin/footer');
+ 	}
+
+ 	function tambah_jenis_produk(){
+
+
+		$this->form_validation->set_rules('jenis', 'jenis', 'required|trim');
+		$this->form_validation->set_rules('persen', 'persen', 'required|trim');
+		if ($this->form_validation->run() == false) {
+			$this->load->view('templateAdmin/header');
+	 		$this->load->view('admin/tambah_jenis_produk');
+	 		$this->load->view('templateAdmin/footer');
+		}else{
+			$nama_jenis= $this->input->post('jenis');
+			$slug = strtolower($nama_jenis);
+			$slug_jp = str_replace(" ", "-", $slug);
+
+			$data = [
+
+				'jenis' => $this->input->post('jenis'),
+				'slug_jenis' => $slug_jp,
+				'persen_bonus' => $this->input->post('persen')
+
+			];
+
+			$input = $this->db->insert('tbl_jenis_produk', $data);
+			$this->session->set_flashdata('message', 'swal("Sukses!!", "Jenis produk berhasil ditambahkan", "success");');
+           redirect('dashboard/jenis-produk'); 
+
+		}
+
+ 		
+ 	}
+
+ 	function edit_jenis_produk($id){
+ 		$this->form_validation->set_rules('jenis', 'jenis', 'required|trim');
+ 		$this->form_validation->set_rules('persen', 'persen', 'required|trim');
+		if ($this->form_validation->run() == false) {
+ 		$data['jenis'] = $this->db->get_where('tbl_jenis_produk',['id' => $id])->row_array();
+ 		$this->load->view('templateAdmin/header');
+ 		$this->load->view('admin/edit_jenis_produk', $data);
+ 		$this->load->view('templateAdmin/footer');
+ 		}else{
+
+ 			$nama_jenis= $this->input->post('jenis');
+			$slug = strtolower($nama_jenis);
+			$slug_jp = str_replace(" ", "-", $slug);
+
+ 			$data = [
+ 				'jenis' => $this->input->post('jenis'),
+ 				'slug_jenis' => $slug_jp,
+ 				'persen_bonus' => $this->input->post('persen'),
+ 			];
+
+ 			$this->db->where('id', $id);
+			$this->db->update('tbl_jenis_produk', $data);
+			$this->session->set_flashdata('message', 'swal("Sukses!!", "Jenis produk berhasil diubah", "success");');
+           redirect('dashboard/jenis-produk'); 
+ 		}
+ 	}
+
+ 	function hapus_jenis_produk(){
+ 		$id = $this->input->get('id');
+ 		$this->db->delete('tbl_jenis_produk', array('id' => $id));
+ 		$this->session->set_flashdata('message', 'swal("Sukses!!", "Jenis produk berhasil dihapus", "success");');
+           redirect('dashboard/jenis-produk'); 
  	}
 
 
@@ -521,11 +600,19 @@
 	 	$this->load->view('admin/bonus', $data);
 	 }
 
+	 function get_bonus_s(){
+	 	$id = $this->input->get('id');
+	 	$data['bonus_s'] = $this->db->get_where('tbl_jenis_produk',['id' => $id])->row_array();
+	 	$this->load->view('admin/bonus_s', $data);
+	 }
+
 
 	 function set_lider(){
 
+	 		$data['setL'] = $this->db->get('tbl_lider', 1)->row_array();
+
 	 		$this->load->view('templateAdmin/header');
-		 	$this->load->view('admin/set_lider');
+		 	$this->load->view('admin/set_lider',$data);
 		 	$this->load->view('templateAdmin/footer');
 		 		$cek = $this->input->post('update');
 		 		if (isset($cek)) {

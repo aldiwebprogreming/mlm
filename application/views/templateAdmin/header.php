@@ -60,7 +60,9 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Produk</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="<?= base_url('dashboard/produk') ?>">Data Produk</a></li>
-                  <li><a class="nav-link" href="<?= base_url('dashboard/tambah-produk') ?>">Tambah Produk</a></li>
+                <li><a class="nav-link" href="<?= base_url('dashboard/tambah-produk') ?>">Tambah Produk</a></li>
+
+                <li><a class="nav-link" href="<?= base_url('dashboard/jenis-produk') ?>">Jenis Produk</a></li>
                  
                 </ul>
               </li>
@@ -101,7 +103,7 @@
                <li class="menu-header">Vendor</li>
                 <li class=""><a class="nav-link" href="<?= base_url('dashboard/vendor') ?>"><i class="fas fa-portrait"></i> <span>Vendor</span></a></li>
 
-                <li class=""><a class="nav-link" href="<?= base_url('dashboard/set-lider') ?>"><i class="fas fa-portrait"></i> <span>Seting Lider</span></a></li>
+                <li class=""><a class="nav-link" href="<?= base_url('dashboard/set-lider') ?>"><i class="fas fa-user-check"></i> <span>Seting Lider</span></a></li>
               </li>
 
                <li class="menu-header">Voucher</li>

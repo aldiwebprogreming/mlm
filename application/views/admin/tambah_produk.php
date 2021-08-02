@@ -64,6 +64,26 @@
                        <small style="color: red;"><?php echo form_error('harga_produk'); ?></small>
                     </div>
 
+                    <div class="form-group">
+                      <label>Jenis Produk</label>
+                        <select class="form-control" name="jenis_produk" id="produk">
+                          <option>-- Pilih jenis produk --</option>
+                          <?php foreach ($jenis as $data) {?>
+                             <option value="<?= $data['id'] ?>"><?= $data['jenis'] ?></option>
+                           <?php } ?>
+                        </select>
+                       <small style="color: red;"><?php echo form_error('jml_voucher'); ?><?php echo set_value('jml_voucher'); ?></small>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Bonus Sponsor</label>
+                        <div id="bonus_produk">
+                          <input type="number" class="form-control" placeholder="" name="bonus_s" value="0" readonly>
+                        </div>
+
+
+                    </div>
+
                    <div class="form-group">
                       <label>Jenis Voucher</label>
                         <select class="form-control" name="jenis_voucher" id="voucher">
@@ -76,7 +96,7 @@
                     </div>
 
                      <div class="form-group">
-                      <label>Bonus</label>
+                      <label>Bonus Cashbeck</label>
                         <div id="bonus">
                           <input type="number" class="form-control" placeholder="" name="bonus" value="0" readonly>
                         </div>
@@ -116,7 +136,7 @@
                     </div>
 
 
-                    
+                  <!--   
                     <div class="form-group">
                       <label>Kode Voucher</label>
                       <div class="input-group">
@@ -128,7 +148,7 @@
                         <input type="text" class="form-control phone-number" value="<?= $kd_voucher ?>" name="kd_voucher" readonly>
                       </div>
                     </div>
-
+ -->
                      <div class="form-group">
                       <label>Tgl Terbit</label>
                       <div class="input-group">
@@ -179,6 +199,18 @@
             var id = $(this).val();
              var url = "<?= base_url('admin/bonus?id=') ?>"+id;
               $("#bonus").load(url);
+          });
+        });
+
+      </script>
+
+      <script>
+       $(document).ready(function(){
+          $('#produk').change(function(){
+
+            var id = $(this).val();
+             var url = "<?= base_url('admin/get_bonus_s?id=') ?>"+id;
+              $("#bonus_produk").load(url);
           });
         });
 

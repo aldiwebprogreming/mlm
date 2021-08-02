@@ -79,6 +79,11 @@ $route['dashboard/produk/(:any)'] = 'admin/detail_produk/$1';
 $route['dashboard/edit-produk/(:any)'] = 'admin/edit_produk/$1';
 $route['dashboard/hapus-produk/(:any)'] = 'admin/hapus_produk/$1';
 $route['dashboard/tambah-produk'] = 'admin/tambah_produk';
+$route['dashboard/jenis-produk'] = 'admin/jenis_produk';
+$route['dashboard/tambah-jenis-produk'] = 'admin/tambah_jenis_produk';
+$route['dashboard/edit-jenis-produk/(:any)'] = 'admin/edit_jenis_produk/$1';
+
+
 
 
 $route['dashboard/member'] = 'admin/data_member';

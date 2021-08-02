@@ -31,8 +31,8 @@
                           </div>
                         </div>
                         <form  method="post" action="">
-                        <input type="hidden" name="id" value="">
-                        <input type="text" required="" class="form-control daterange-cus" value="" name="bonus">
+                       
+                        <input type="text" required="" class="form-control daterange-cus" value="<?= $setL['bonus'] ?>" name="bonus">
                       </div>
                       <input type="submit" name="update" value="Set Lider" class="btn btn-primary mt-3">
                     </form>
