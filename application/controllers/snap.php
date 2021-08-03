@@ -166,6 +166,22 @@ class Snap extends CI_Controller {
             $this->db->insert('tbl_cash', $data);
             // end
 
+            // input bonus lider
+            $persen_lider = 0.2 / 100;
+            $bonus_lider = $persen_lider * $harga2;
+
+            $data_lider = $this->db->get('tbl_lider')->result_array();
+            foreach ($data_lider as $lider) {
+                $data = [
+                    'kode_user' => $lider['kode_user'],
+                    'jml_bonus' => $bonus_lider,
+                ];
+
+                $input_lider = $this->db->insert('tbl_bonus_lider', $data);
+            }
+            
+            // end
+
 
             // bonus vendor 0,2 setiap pembelian produk, persen bersifat dinamis dapat di ganti2
             $vendor = $this->db->get('tbl_register', 1)->row_array();
