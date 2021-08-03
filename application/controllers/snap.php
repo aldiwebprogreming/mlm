@@ -153,8 +153,9 @@ class Snap extends CI_Controller {
 
 
             // input cashbeack 5%, 10%,
+            $cashb = $this->db->get('tbl_cashback')->row_array(); 
             $harga2 = $result['gross_amount'];
-            $persen2 = 5 / 100;
+            $persen2 = $cashb['cashback'] / 100;
             $ecash2 = $persen2 * $harga2;
 
              $data = [
@@ -167,7 +168,8 @@ class Snap extends CI_Controller {
             // end
 
             // input bonus lider
-            $persen_lider = 0.2 / 100;
+            $lider = $this->db->get_where('tbl_lider')->row_array();
+            $persen_lider = $lider['bonus'] / 100;
             $bonus_lider = $persen_lider * $harga2;
 
             $data_lider = $this->db->get('tbl_lider')->result_array();

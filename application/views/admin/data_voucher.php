@@ -32,7 +32,8 @@
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Name voucher</th>
-                      <th scope="col">Bonus</th>
+                      <th scope="col">Bonus Sponsor</th>
+                      <th scope="col">Bonus Cashback</th>
                       <th scope="col">Opsi</th>
                     </tr>
                   </thead>
@@ -43,7 +44,8 @@
                     <tr>
                       <th scope="row"><?= $no++; ?></th>
                       <td><?= $data['name'] ?></td>
-                      <td><?= $data['bonus'] ?>%</td>
+                      <td><?= $data['bonus_sponsor'] ?>%</td>
+                      <td><?= $data['bonus_cashback'] ?>%</td>
                      
                       
                       <td>

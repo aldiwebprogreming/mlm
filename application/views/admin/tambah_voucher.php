@@ -44,7 +44,7 @@
 
                      
                     <div class="form-group">
-                      <label>Bonus</label>
+                      <label>Bonus sponsor</label>
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
@@ -55,6 +55,21 @@
                       </div>
                       <small style="color: red;"><?php echo form_error('bonus'); ?></small>
                     </div>
+
+                      <div class="form-group">
+                      <label>Bonus cashback</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                              <i class="fas fa-percent"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control phone-number" value="" name="cashback">
+                      </div>
+                      <small style="color: red;"><?php echo form_error('bonus'); ?></small>
+                    </div>
+
+                    
 
                     
                     <input type="submit" name="kirim" class="btn btn-primary" value="Simpan">

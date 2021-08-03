@@ -458,6 +458,27 @@
  		}
  	}
 
+ 	function cashback(){
+
+ 		$data['cashback'] = $this->db->get('tbl_cashback')->result_array();
+        $this->load->view('templateAdmin/header');
+        $this->load->view('admin/set_cashback', $data);
+        $this->load->view('templateAdmin/footer');
+
+        $cek = $this->input->post('update');
+		 		if (isset($cek)) {
+		 			
+		 		
+		 		$data = [
+		 			'cashback' => $this->input->post('bonus'),
+		 		];
+
+		 		$this->db->update('tbl_cashback', $data);
+		 		$this->session->set_flashdata('message', 'swal("Sukses!!", "Cashbacj berhasil diset", "success");');
+          		 redirect('dashboard/set-cashback'); 
+		 	}
+    }
+
  	function edit_level(){
  		$action = $this->input->post('kirim');
 
@@ -559,7 +580,8 @@
 	 function tambah_voucher(){
 
 	 	$this->form_validation->set_rules('name','name voucher','required|trim');
-	 	$this->form_validation->set_rules('bonus','bonus','required|trim');
+	 	$this->form_validation->set_rules('bonus','bonus sponsor','required|trim');
+	 	$this->form_validation->set_rules('cashback','cashback','required|trim');
 
 	 	if ($this->form_validation->run() == FALSE) {
 		 	$this->load->view('templateAdmin/header');
@@ -572,7 +594,8 @@
 
 	 		$data = [
 	 			'name' => $this->input->post('name'),
-	 			'bonus' => $this->input->post('bonus'),
+	 			'bonus_sponsor' => $this->input->post('bonus'),
+	 			'bonus_cashback' => $this->input->post('cashback'),
 	 			'slug_vc' => $slug_vc,
 	 		];
 
@@ -602,7 +625,7 @@
 
 	 function get_bonus_s(){
 	 	$id = $this->input->get('id');
-	 	$data['bonus_s'] = $this->db->get_where('tbl_jenis_produk',['id' => $id])->row_array();
+	 	$data['bonus_s'] = $this->db->get_where('tbl_voucher',['id' => $id])->row_array();
 	 	$this->load->view('admin/bonus_s', $data);
 	 }
 

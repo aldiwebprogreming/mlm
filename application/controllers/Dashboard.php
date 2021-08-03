@@ -172,6 +172,13 @@
     }
 
 
+    function cashback(){
+        $this->load->view('templateAdmin/header');
+        $this->load->view('dashboard/cashback', $data);
+        $this->load->view('templateAdmin/footer');
+    }
+
+
     function sms(){
          $email_api = urlencode("alldii1956@gmail.com");
         $passkey_api = urlencode("Hm123123");

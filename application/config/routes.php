@@ -102,6 +102,7 @@ $route['dashboard/tambah-voucher'] = 'admin/tambah_voucher';
 
 $route['dashboard/total-ecash'] = 'admin/total_ecash';
 $route['dashboard/seting-ecash'] = 'admin/seting_ecash';
+$route['dashboard/set-cashback'] = 'admin/cashback';
 
 $route['dashboard/admin'] = 'admin/data_admin';
 $route['dashboard/tambah-admin'] = 'admin/tambah_admin';

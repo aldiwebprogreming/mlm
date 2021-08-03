@@ -106,6 +106,9 @@
                 <li class=""><a class="nav-link" href="<?= base_url('dashboard/set-lider') ?>"><i class="fas fa-user-check"></i> <span>Seting Lider</span></a></li>
               </li>
 
+              <li class=""><a class="nav-link" href="<?= base_url('dashboard/set-cashback') ?>"><i class="fas fa-undo-alt"></i> <span>Seting Cashback</span></a></li>
+              </li>
+
                <li class="menu-header">Voucher</li>
                 <li class=""><a class="nav-link" href="<?= base_url('dashboard/voucher') ?>"><i class="fas fa-credit-card"></i> <span>Data Voucher</span></a></li>
               </li>

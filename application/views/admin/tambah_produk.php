@@ -75,14 +75,7 @@
                        <small style="color: red;"><?php echo form_error('jml_voucher'); ?><?php echo set_value('jml_voucher'); ?></small>
                     </div>
 
-                    <div class="form-group">
-                      <label>Bonus Sponsor</label>
-                        <div id="bonus_produk">
-                          <input type="number" class="form-control" placeholder="" name="bonus_s" value="0" readonly>
-                        </div>
-
-
-                    </div>
+                   
 
                    <div class="form-group">
                       <label>Jenis Voucher</label>
@@ -95,10 +88,19 @@
                        <small style="color: red;"><?php echo form_error('jml_voucher'); ?><?php echo set_value('jml_voucher'); ?></small>
                     </div>
 
+                    <div class="form-group">
+                      <label>Bonus Sponsor</label>
+                        <div id="bonus_sponsor">
+                          <input type="number" class="form-control" placeholder="" name="bonus_s" value="0" readonly>
+                        </div>
+
+
+                    </div>
+
                      <div class="form-group">
                       <label>Bonus Cashbeck</label>
-                        <div id="bonus">
-                          <input type="number" class="form-control" placeholder="" name="bonus" value="0" readonly>
+                        <div id="bonus_cashback">
+                          <input type="number" class="form-control" placeholder="" name="bonus_cashback" value="0" readonly>
                         </div>
 
 
@@ -198,22 +200,17 @@
 
             var id = $(this).val();
              var url = "<?= base_url('admin/bonus?id=') ?>"+id;
-              $("#bonus").load(url);
+              $("#bonus_cashback").load(url);
+
+              var url2 = "<?= base_url('admin/get_bonus_s?id=') ?>"+id;
+              $("#bonus_sponsor").load(url2);
           });
         });
 
       </script>
 
       <script>
-       $(document).ready(function(){
-          $('#produk').change(function(){
-
-            var id = $(this).val();
-             var url = "<?= base_url('admin/get_bonus_s?id=') ?>"+id;
-              $("#bonus_produk").load(url);
-          });
-        });
-
+       
       </script>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
