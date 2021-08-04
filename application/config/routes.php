@@ -107,6 +107,10 @@ $route['dashboard/set-cashback'] = 'admin/cashback';
 $route['dashboard/admin'] = 'admin/data_admin';
 $route['dashboard/tambah-admin'] = 'admin/tambah_admin';
 $route['dashboard/set-lider'] = 'admin/set_lider';
+$route['dashboard/add-member'] = 'admin/add_member';
+$route['produk/detail-produk/(:any)'] = 'admin/produkDet/$1';
+
+
 
 $route['dashboard/login'] = 'login/index';
 

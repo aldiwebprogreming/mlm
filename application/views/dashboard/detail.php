@@ -15,7 +15,9 @@
       <input type="hidden" name="kode_produk" value="<?= $det['kode_produk'] ?>">
       <input type="hidden" name="nama_produk" id="nama_produk" value="<?= $det['judul_produk'] ?>">
       <input type="hidden" name="harga" id="harga" value="<?= $det['harga'] ?>">
+      <input type="hidden" name="cashback" id="cashback" value="<?= $det['bonus'] ?>">
        <input type="hidden" name="kode_user" id="kode_user" value="<?= $this->session->kode_user ?>">
+
   </form>
 
 <div class="container">

@@ -652,6 +652,46 @@
 	 	
 	 }
 
+	 function add_member(){
+	 	$kode = rand(1, 100000);
+        $data['kode_user'] = "Ebunga-".$kode;
+
+        $data['voucher'] = $this->db->get('tbl_voucher')->result_array();
+
+        $this->load->view('templateAdmin/header');
+        $this->load->view('admin/add_member2', $data);
+        $this->load->view('templateAdmin/footer');
+
+    }
+
+    function kirim(){
+    		echo $this->input->post('nama');
+        	echo $this->input->post('hp');
+        	echo $this->input->post('alamat');
+    }
+
+
+
+    function get_produk(){
+
+    	$id = $this->input->get('id');
+    	$data['getProduk'] = $this->db->get_where('tbl_produk', ['jenis_voucher' => $id])->result_array();
+
+    	$this->load->view('admin/getProduk', $data);
+    }
+
+
+
+    function produkDet($kode){
+    	$data['detProduk'] = $this->db->get_where('tbl_produk',['kode_produk' => $kode])->row_array();
+    	$this->load->view('templateAdmin/header');
+    	$this->load->view('admin/detPay', $data);
+    	$this->load->view('templateAdmin/footer');
+
+
+    }
+
+
 
 
  }

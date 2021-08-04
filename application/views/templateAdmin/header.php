@@ -10,6 +10,11 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+  <script type="text/javascript"
+            src="https://app.sandbox.midtrans.com/snap/snap.js"
+            data-client-key="SB-Mid-client-BggmMsnPGVAR9waz"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
   <!-- CSS Libraries -->
 
   <!-- Template CSS -->
@@ -111,6 +116,10 @@
 
                <li class="menu-header">Voucher</li>
                 <li class=""><a class="nav-link" href="<?= base_url('dashboard/voucher') ?>"><i class="fas fa-credit-card"></i> <span>Data Voucher</span></a></li>
+              </li>
+
+              <li class="menu-header">Add Member</li>
+                <li class=""><a class="nav-link" href="<?= base_url('dashboard/add_member') ?>"><i class="fas fa-credit-card"></i> <span>Add Member</span></a></li>
               </li>
 
 

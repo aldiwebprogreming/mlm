@@ -72,7 +72,7 @@
                              <option value="<?= $data['id'] ?>"><?= $data['jenis'] ?></option>
                            <?php } ?>
                         </select>
-                       <small style="color: red;"><?php echo form_error('jml_voucher'); ?><?php echo set_value('jml_voucher'); ?></small>
+                       <!-- <small style="color: red;"><?php echo form_error('jml_voucher'); ?><?php echo set_value('jml_voucher'); ?></small> -->
                     </div>
 
                    
@@ -85,7 +85,7 @@
                              <option value="<?= $data['id'] ?>"><?= $data['name'] ?></option>
                            <?php } ?>
                         </select>
-                       <small style="color: red;"><?php echo form_error('jml_voucher'); ?><?php echo set_value('jml_voucher'); ?></small>
+                       <!-- <small style="color: red;"><?php echo form_error('jml_voucher'); ?><?php echo set_value('jml_voucher'); ?></small> -->
                     </div>
 
                     <div class="form-group">
@@ -109,7 +109,7 @@
                     <div class="form-group">
                       <label>Jumlah Voucher</label>
                       <input type="number" v-model="bagi" class="form-control" placeholder="" name="jml_voucher">
-                       <small style="color: red;"><?php echo form_error('jml_voucher'); ?><?php echo set_value('jml_voucher'); ?></small>
+                       <!-- <small style="color: red;"><?php echo form_error('jml_voucher'); ?><?php echo set_value('jml_voucher'); ?></small> -->
                     </div>
 
                     <!-- <div id="app">
