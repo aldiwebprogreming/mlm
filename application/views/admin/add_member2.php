@@ -57,7 +57,7 @@
 
                   <div class="card-body">
                    
-                    <form id="app" method="post" action="">
+                    <div id="app">
                       <section v-if = "step == 1">
                       <div class="form-group">
                       <label>Kode Vendor</label>
@@ -79,7 +79,7 @@
                               <i class="fas fa-qrcode"></i>
                           </div>
                         </div>
-                        <input type="text" class="form-control phone-number" value="<?= $kode_user ?>" name="kd_user" readonly>
+                        <input type="text" class="form-control phone-number" value="<?= $kode_user ?>" name="kd_user" v-model="kode_user" readonly>
                       </div>
                     </div>
                       
@@ -175,6 +175,18 @@
                       
                     </div>
 
+                     <!--  <input type="text" name="name" v-model="name">
+                      <input type="text" name="username" v-model="username">
+                      <input type="text" name="username" v-model="nohp">
+                      <input type="text" name="username" v-model="email">
+                      <input type="text" name="username" v-model="pass1"> -->
+
+                      <?php 
+
+
+
+                       ?>
+
                       <div id="vc">
 
                         
@@ -190,7 +202,7 @@
 
                     <input type="submit" name="kirim" class="btn btn-primary" value="Simpan">
 
-                    </form>
+                    </div>
                     
                   </div>
 
@@ -234,6 +246,7 @@
             nohp : '',
             pass1 : '',
             pass2 : '',
+            kode_user : "<?= $kode_user ?>",
 
             val : ''
             // message: {
@@ -281,7 +294,15 @@
 
             changeVoucher: function(){
               var a = event.target.value;
-              var url2 = "<?= base_url('admin/get_produk?id=') ?>"+a;
+              var name = this.name;
+              var username = this.username;
+              var email = this.email;
+              var nohp = this.nohp;
+              var pass1 = this.pass1;
+              var pass2 = this.pass2;
+              var kode_user = this.kode_user;
+
+              var url2 = "<?= base_url('admin/get_produk?id=') ?>"+a+"&name="+name+"&username="+username+"&email="+email+"&nohp="+nohp+"&pass1="+pass1+"&pass2="+pass2+"&kode_user="+kode_user;
               $("#vc").load(url2);
             }
           }

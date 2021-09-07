@@ -18,16 +18,7 @@
           </ul>
         </div>
 
-        <div class="card" style=";">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-          </ul>
-        </div>
+       
     </div>
 
     <div class="col-sm-8">

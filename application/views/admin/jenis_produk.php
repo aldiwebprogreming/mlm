@@ -17,11 +17,11 @@
             
             <div class="card">
               <div class="card-header">
-                <h4>Data Jenis Produk</h4>
+                <h4>Data Jenis Paket Produk</h4>
 
               </div>
               <div class="card-body">
-                <a href="<?= base_url('dashboard/tambah-jenis-produk') ?>" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Tambah Jenis Produk </a>
+                <a href="<?= base_url('dashboard/tambah-jenis-produk') ?>" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Tambah Jenis Paket Produk </a>
 
                 <!-- Button trigger modal -->
 
@@ -31,7 +31,7 @@
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Jenis</th>
-                       <th scope="col">Persen Bonus</th>
+                       <th scope="col">Bonus Point</th>
                       <th scope="col">Date Create</th>
 
                       <th scope="col">Opsi</th>
@@ -44,7 +44,7 @@
                     <tr>
                       <th scope="row"><?= $no++; ?></th>
                       <td><?= $data['jenis'] ?></td>
-                      <td><?= $data['persen_bonus'] ?>%</td>
+                      <td><?= $data['bonus_point'] ?></td>
                       <td><?= $data['date'] ?></td>
                      
                       

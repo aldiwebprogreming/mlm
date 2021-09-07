@@ -101,7 +101,7 @@ $route['dashboard/tambah-voucher'] = 'admin/tambah_voucher';
 
 
 $route['dashboard/total-ecash'] = 'admin/total_ecash';
-$route['dashboard/seting-ecash'] = 'admin/seting_ecash';
+$route['dashboard/seting-bonus-referral'] = 'admin/seting_referral';
 $route['dashboard/set-cashback'] = 'admin/cashback';
 
 $route['dashboard/admin'] = 'admin/data_admin';
@@ -115,6 +115,10 @@ $route['produk/detail-produk/(:any)'] = 'admin/produkDet/$1';
 $route['dashboard/login'] = 'login/index';
 
 
+// halaman user baru 
+$route['ptberkah/home'] = 'user/index';
+$route['ptberkah/add-member'] = 'user/add_member';
+$route['ptberkah/login'] = 'login_user/index';
 
 
 

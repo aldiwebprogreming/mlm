@@ -24,6 +24,7 @@
                     </div>
                     <hr>
                     <div class="row">
+                      
                       <table>
                         <tr>
                           <td>Judul Produk</td>
@@ -126,22 +127,23 @@
                   <input type="hidden" name="result_type" id="result-type" value=""></div>
                   <input type="hidden" name="result_data" id="result-data" value=""></div>
                   <input type="hidden" name="name" id="name" value="<?= $this->session->username_admin  ?>">
-                  <!-- <input type="hidden" name="email" id="email" value="<?= $this->session->email  ?>"> -->
+                  <input type="hidden" name="email" id="email" value="<?= $user['email']  ?>">
                   <input type="hidden" name="kode_produk" value="<?= $detProduk['kode_produk'] ?>">
                   <input type="hidden" name="nama_produk" id="nama_produk" value="<?= $detProduk['judul_produk'] ?>">
                   <input type="hidden" name="harga" id="harga" value="<?= $detProduk['harga'] ?>">
                   <input type="hidden" name="cashback" id="cashback" value="<?= $detProduk['bonus'] ?>">
-                   <input type="hidden" name="kode_user" id="kode_user" value="<?= $this->session->kode_user ?>">
+                   <input type="hidden" name="kode_user" id="kode_user" value="<?= $user['kode_user'] ?>">
 
               </form>
 
-              <button type="button" id="pay-button" data-amount="800" class="btn btn-primary btn-lg btn-block">Pay!</button>
+              <!-- <button type="button" id="pay-button" data-amount="800" class="btn btn-primary btn-lg btn-block">Pay!</button> -->
 
-                  <button class="btn btn-primary btn-icon icon-left"><i class="fas fa-credit-card"></i> Process Payment</button>
+                  <button type="button" id="pay-button" data-amount="800" class="btn btn-primary btn-icon icon-left"><i class="fas fa-credit-card"></i> Process Payment</button>
                   <button class="btn btn-danger btn-icon icon-left"><i class="fas fa-times"></i> Cancel</button>
-                </div>
+              
                 <button class="btn btn-warning btn-icon icon-left"><i class="fas fa-print"></i> Print</button>
               </div>
+              
             </div>
           </div>
         </section>

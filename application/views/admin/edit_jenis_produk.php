@@ -41,14 +41,14 @@
                     </div>
 
                     <div class="form-group">
-                      <label>Persen Bonus</label>
+                      <label>Bonus Point</label>
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
                               <i class="fas fa-percent"></i>
                           </div>
                         </div>
-                        <input type="number" class="form-control " value="<?= $jenis['persen_bonus'] ?>" name="persen">
+                        <input type="number" class="form-control " value="<?= $jenis['bonus_point'] ?>" name="persen">
                       </div>
                       <small style="color: red;"><?php echo form_error('persen'); ?></small>
                     </div>

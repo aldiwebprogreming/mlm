@@ -6,6 +6,7 @@
   <title>Admin PT.Berkah</title>
 
   <!-- General CSS Files -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -49,7 +50,7 @@
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="<?= base_url('dashboard/home') ?>">PT.BERKAH</a>
+            <a href="<?= base_url('dashboard/home') ?>">ADMIN PT.BERKAH</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="">St</a>
@@ -79,8 +80,8 @@
                    <li><a class="nav-link" href="<?= base_url('dashboard/member') ?>">Data Member</a></li>
 
                   <li><a class="nav-link" href="<?= base_url('dashboard/tambah-member') ?>">Tambah Member</a></li>
-                 
-                   <li><a class="nav-link" href="<?= base_url('dashboard/seting-member') ?>">Seting Member</a></li>
+                 <!-- 
+                   <li><a class="nav-link" href="<?= base_url('dashboard/seting-member') ?>">Seting Member</a></li> -->
 
                     <li><a class="nav-link" href="<?= base_url('dashboard/jaringan') ?>">Jaringan Member</a></li>
                     
@@ -88,13 +89,61 @@
               </li>
 
                <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-wallet"></i> <span>Ecash</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-wallet"></i> <span>Bonus</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="<?= base_url('dashboard/total-ecash') ?>">Total Ecash</a></li>
-                  <li><a class="nav-link" href="<?= base_url('dashboard/seting-ecash') ?>">Seting Ecash</a></li>
+                  <li><a class="nav-link" href="<?= base_url('dashboard/seting-bonus-referral') ?>">Seting Bonus Referral</a></li>
+
+                  <li class=""><a class="nav-link" href="<?= base_url('dashboard/set-lider') ?>"> <span>Seting Bonus Lider</span></a></li>
+
+                 <li class=""><a class="nav-link" href="<?= base_url('dashboard/set-cashback') ?>"><span>Seting  Bonus Cashback</span></a></li>
+              </li>
+             
                     
                 </ul>
               </li>
+
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-wallet"></i> <span>Lider</span></a>
+                <ul class="dropdown-menu">
+                <li><a class="nav-link" href="<?= base_url('dashboard/seting-member') ?>">Tambah Lider</a></li>
+                  
+              </li>
+
+                    
+                </ul>
+              </li>
+
+               <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-credit-card"></i> <span>Voucher</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="<?= base_url('dashboard/voucher') ?>">Data Voucher</a></li>
+
+                  <li><a class="nav-link" href="<?= base_url('dashboard/jenis-produk') ?>">Data Paket </a></li>
+                  
+
+               <li class=""><a class="nav-link" href="<?= base_url('admin/data_setvoucher') ?>"> <span>Data Set Voucher</span></a></li>
+              </li>
+
+              <li class=""><a class="nav-link" href="<?= base_url('admin/seting_paketVoucher') ?>"> <span>Seting Paket Voucher</span></a></li>
+              </li>
+
+                    
+                </ul>
+              </li>
+
+
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-shopping-cart"></i> <span>Transaksi</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="<?= base_url('admin/transaksi') ?>">Transaksi Baru</a></li>
+
+                  <li><a class="nav-link" href="<?= base_url('admin/transaksi_upgrade') ?>">Transaksi Upgrade</a></li>
+                  
+                    
+                </ul>
+              </li>
+
 
                <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user-lock"></i> <span>Admin</span></a>
@@ -108,19 +157,22 @@
                <li class="menu-header">Vendor</li>
                 <li class=""><a class="nav-link" href="<?= base_url('dashboard/vendor') ?>"><i class="fas fa-portrait"></i> <span>Vendor</span></a></li>
 
-                <li class=""><a class="nav-link" href="<?= base_url('dashboard/set-lider') ?>"><i class="fas fa-user-check"></i> <span>Seting Lider</span></a></li>
-              </li>
+               
 
-              <li class=""><a class="nav-link" href="<?= base_url('dashboard/set-cashback') ?>"><i class="fas fa-undo-alt"></i> <span>Seting Cashback</span></a></li>
-              </li>
+             
+
+
 
                <li class="menu-header">Voucher</li>
                 <li class=""><a class="nav-link" href="<?= base_url('dashboard/voucher') ?>"><i class="fas fa-credit-card"></i> <span>Data Voucher</span></a></li>
               </li>
 
-              <li class="menu-header">Add Member</li>
-                <li class=""><a class="nav-link" href="<?= base_url('dashboard/add_member') ?>"><i class="fas fa-credit-card"></i> <span>Add Member</span></a></li>
-              </li>
+
+              
+
+
+
+
 
 
               <!-- <li class="active"><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li> -->

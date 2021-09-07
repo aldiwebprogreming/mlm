@@ -26,8 +26,8 @@
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Kode produk</th>
-                      <th scope="col">Judul produk</th>
-                      <th scope="col">Ket produk</th>
+                      <th scope="col">Jenis Paket</th>
+                      <th scope="col">Jenis Voucher</th>
                       <th scope="col">Opsi</th>
                     </tr>
                   </thead>
@@ -38,8 +38,8 @@
                     <tr>
                       <th scope="row"><?= $no++; ?></th>
                       <td><?= $data['kode_produk'] ?></td>
-                      <td><?= $data['judul_produk'] ?></td>
-                      <td><?= $data['keterangan_produk'] ?></td>
+                      <td><?= $data['jenis_produk'] ?></td>
+                      <td><?= $data['jenis_voucher'] ?></td>
                       
                       <td>
                         <a href="<?= base_url('dashboard/produk/') ?><?= $data['kode_produk'] ?>" class="btn btn-icon btn-info" id="modal-1"><i class="fas fa-info-circle"></i></a>

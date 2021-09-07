@@ -1,4 +1,4 @@
-<footer class="main-footer">
+ <footer class="main-footer">
       <center>
         <div class="footer-left">
           Copyright &copy; 2021<div class="bullet"></div>PT.<a href="#">Berkah</a>

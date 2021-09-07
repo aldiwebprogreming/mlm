@@ -36,22 +36,20 @@
                          
                         </tr>
                         <tr>
-                         <td>Judul Produk</td>
-                          <td>:</td>
-                          <td><?= $produk['judul_produk'] ?></td>
-                        </tr>
-                          
-                        <tr>
-                          <td>Ket Produk</td>
-                          <td>:</td>
-                          <td><?= $produk['keterangan_produk'] ?></td>
-                        </tr>
+                         
+                       
                         <tr>
                           <td>Harga Produk</td>
                           <td>:</td>
                           <td><?= $produk['harga'] ?></td>
                         </tr>
                         <tr>
+                          <td>Jenis Paket</td>
+                          <td>:</td>
+                          <td><?= $produk['jenis_produk'] ?></td>
+                        </tr>
+
+                         <tr>
                           <td>Jenis Voucher</td>
                           <td>:</td>
                           <td><?= $produk['jenis_voucher'] ?></td>
@@ -59,12 +57,12 @@
                         <tr>
                           <td>Jumlah Voucher</td>
                           <td>:</td>
-                          <td><?= $produk['jumlah_voucher'] ?></td>
+                          <td><?= $produk['jumlah_voucher'] ?> voucher</td>
                         </tr>
                         <tr>
                           <td>Nilai  Pervoucher</td>
                           <td>:</td>
-                          <td><?= $produk['nilai_voucher'] ?></td>
+                          <td>Rp.<?= $produk['nilai_voucher'] ?></td>
                         </tr>
                        <!--  <tr>
                           <td>Kode Voucher</td>
@@ -74,9 +72,15 @@
                         <tr>
                           <td>Bonus</td>
                           <td>:</td>
-                          <td><?= $produk['bonus'] ?>%</td>
+                          <td><?= $produk['bonus_sponsor'] ?>%</td>
                         </tr>
+
                         <tr>
+                          <td>Bonus Point</td>
+                          <td>:</td>
+                          <td><?= $produk['bonus_point'] ?></td>
+                        </tr>
+                        <!-- <tr>
                           <td>Tgl Terbit</td>
                           <td>:</td>
                           <td><?= $produk['tgl_terbit'] ?></td>
@@ -86,7 +90,7 @@
                           <td>Tgl Batas Berlaku</td>
                           <td>:</td>
                           <td><?= $produk['tgl_batasterbit'] ?></td>
-                        </tr>
+                        </tr> -->
                       </tbody>
                     </table>
 

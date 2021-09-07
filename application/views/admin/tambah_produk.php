@@ -65,14 +65,24 @@
                     </div>
 
                     <div class="form-group">
-                      <label>Jenis Produk</label>
-                        <select class="form-control" name="jenis_produk" id="produk">
-                          <option>-- Pilih jenis produk --</option>
+                      <label>Jenis Paket</label>
+                        <select class="form-control" name="jenis_produk" id="paket">
+                          <option>-- Pilih jenis Paket--</option>
                           <?php foreach ($jenis as $data) {?>
                              <option value="<?= $data['id'] ?>"><?= $data['jenis'] ?></option>
                            <?php } ?>
                         </select>
                        <!-- <small style="color: red;"><?php echo form_error('jml_voucher'); ?><?php echo set_value('jml_voucher'); ?></small> -->
+                    </div>
+
+
+                     <div class="form-group">
+                      <label>Bonus Point</label>
+                        <div id="bonus_point">
+                          <input type="text" class="form-control" placeholder="" name="bonus_cashback" value="0" readonly>
+                        </div>
+
+
                     </div>
 
                    
@@ -97,14 +107,7 @@
 
                     </div>
 
-                     <div class="form-group">
-                      <label>Bonus Cashbeck</label>
-                        <div id="bonus_cashback">
-                          <input type="number" class="form-control" placeholder="" name="bonus_cashback" value="0" readonly>
-                        </div>
-
-
-                    </div>
+                    
 
                     <div class="form-group">
                       <label>Jumlah Voucher</label>
@@ -199,17 +202,21 @@
           $('#voucher').change(function(){
 
             var id = $(this).val();
-             var url = "<?= base_url('admin/bonus?id=') ?>"+id;
-              $("#bonus_cashback").load(url);
-
               var url2 = "<?= base_url('admin/get_bonus_s?id=') ?>"+id;
               $("#bonus_sponsor").load(url2);
           });
+
+
+          $("#paket").change(function(){
+            var id = $(this).val();
+             var get = "<?= base_url('admin/get_bonus_point?id=') ?>"+id;
+              $("#bonus_point").load(get);
+
+          })
+
         });
 
-      </script>
-
-      <script>
+     
        
       </script>
 
@@ -221,12 +228,15 @@
   data: {
     message: 'Hello Vue!',
     harga:0,
+    harga_naikvoucher : "<?= $harga_naikvoucher['naik_harga'] ?>",
     bagi:0,
+
   },
 
   methods: {
     total: function () {
-      return this.harga / this.bagi;
+      var proses =  this.harga / this.bagi;
+      return proses + Number(this.harga_naikvoucher);
     }
   }
 

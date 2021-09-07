@@ -8,13 +8,18 @@
 		
 		function __construct()
 		{
+			
 			parent:: __construct();
 		}
 
-		function produk(){
+		function index(){
 			$this->load->view('Templateuser/header');
-			// $this->load->view('user/produk');
-			// $this->load->view('Templateuser/footer');
+			$this->load->view('user/index');
+			$this->load->view('Templateuser/footer');
+		}
+
+		function add_member(){
+
 		}
 	}
 

@@ -83,7 +83,7 @@
                     <div class="form-group">
                       <label>Bonus</label>
                         <div id="bonus">
-                          <input type="number" class="form-control" placeholder="" name="bonus" value="<?= $produk['bonus'] ?>" readonly>
+                          <input type="number" class="form-control" placeholder="" name="bonus" value="<?= $produk['bonus_sponsor'] ?>" readonly>
                         </div>
 
                         
