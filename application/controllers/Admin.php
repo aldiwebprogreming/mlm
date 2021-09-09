@@ -1735,8 +1735,8 @@
          $config = [
             'protocol'  => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_user' => 'aldiiit593@@gmail.com',
-            'smtp_pass' => 'aldimantap1234',
+            'smtp_user' => 'aldiiit593@gmail.com',
+            'smtp_pass' => 'jmgtfhyvdxqqiuyy',
             'smtp_port' => 465,
             'mailtype'  => 'html',
             'charset'   => 'utf-8',

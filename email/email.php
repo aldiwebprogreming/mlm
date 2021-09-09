@@ -73,7 +73,6 @@
                                             Selamat anda berhasil bergabung di PT.B<br>
                                           </span>
                                           <span style='font-weight:700; color: #ff6f6f; font-size: 18px;'>
-                                            (5%).
                                           </span>
                                           <span>
                                           </span>
@@ -97,7 +96,7 @@
                                           <tr>
                                             <td align='center' bgcolor='#ff6f6f' role='presentation' style='background-color:#ff6f6f;border:none;border-radius:5px;cursor:auto;padding:10px 25px;' valign='middle'>
                                               <a href='# Coupon' style='background:#ff6f6f;color:#ffffff;font-family:Oxygen, Helvetica neue, sans-serif;font-size:14px;font-weight:400;line-height:21px;margin:0;text-decoration:none;text-transform:none;' target='_blank'>
-                                                Ubah Password anda
+                                                Login Sekarang
                                               </a>
                                             </td>
                                           </tr>
